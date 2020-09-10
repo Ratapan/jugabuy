@@ -11,8 +11,8 @@
 </head>
 <body>
   <!-- Menu -->
-  <div class="container-fluid navbar bg-primary fixed-top  ">
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary  container">      
+  <div class="container-fluid navbar bg-dark fixed-top  ">
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark  container">      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,17 +43,52 @@
       <div class="mr-2">
         <a class="navbar-brand " href="#"><i class="fas fa-shopping-cart text-white" ></i></i></a>
       </div>
-      <div >
-        <a class="navbar-brand" href="#"><i class="fas fa-user text-white"   ></i></a>
-      </div>    
+      <!-- Usuario -->
+      <div  >
+        <a class="navbar-brand" href="#"><i class="fas fa-user text-white "  type="button" data-toggle="modal" data-target="#staticBackdrop" ></i></a>        
+      </div>          
     </nav>
   </div>
-  <!--Imagen inicio  -->
 
-    <div id="carouselExampleFade " class="carousel slide carousel-fade img-fluid mt-5  " data-ride="carousel">
-      <div class="carousel-inner">
+  <!-- Modal de Iniciar Sesion -->
+  <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog d-flex justify-content-center">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+     
+        <div class="modal-footer d-flex justify-content-center">
+          <form class=" d-block" method="GET">
+            <div class="form-group">
+              <label  for="exampleInputEmail1">Nombre de Usuario</label>
+              <input placeholder="Pepe001" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">contraseña</label>
+              <input placeholder="contraseña" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
+            </div>
+            <button type="submit" class="btn btn-dark">Entrar</button>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+  
+ 
+  <!--Imagen inicio  -->
+    <div id="carouselExampleFade " class="carousel slide carousel-fade  mt-5 " data-ride="carousel">
+      <div class="carousel-inner ">
         <div class="carousel-item active mt-4">
-          <img src="imagen/1.jpg" class="d-block  w-100 " alt="">
+          <img src="imagen/1.jpg" class="d-block  w-100  " alt="">
         </div>
         <div class="carousel-item">
           <img src="imagen/1.2.jpg" class="d-block w-100" alt="">
@@ -91,38 +126,34 @@
       </div>
 
 
-
-      <div class="container  "> 
-        <!--3 divisiones para las imagenes y descripcion  -->
-          <div class="row justify-content-around  ">
-            <div class="col-xs-12  col-md-3 col-lg-3 text-center shadow px-2 espacio   ">
+  <!--3 divisiones para las imagenes y descripcion  -->
+      <div class="container  ">       
+          <div class="row justify-content-around m-2  ">
+            <div class="col-xs-12  col-md-3 col-lg-3 text-center shadow px-2 mb-4 espacio   ">
                 <img src="imagen/2.jpg" class="img-fluid " alt="">
                 <h3 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
                 <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p> 
                  
             </div>
 
-            <div class="col-xs-12  col-md-3 col-lg-3   text-center shadow px-2 espacio  ">
+            <div class="col-xs-12  col-md-3 col-lg-3   text-center shadow px-2 mb-4 espacio  ">
               <img src="imagen/2.jpg" class="img-fluid" alt="">
               <h3 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
               <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>      
             </div>
 
-            <div class="col-xs-12 col-md-3 col-lg-3  text-center shadow px-2 espacio ">
+            <div class="col-xs-12 col-md-3 col-lg-3  text-center shadow px-2 mb-4 espacio ">
               <img src="imagen/2.jpg" class="img-fluid" alt="">
               <h3 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
               <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>      
             </div>
-            
-
-
-          </div>
-      
+          </div>    
     </div>
+   
+
     
-    
-    <div class="container-fluid bg-primary  ">
-      <footer class="container mt-5  bg-primary ">
+    <div class="container-fluid bg-dark  ">
+      <footer class="container mt-5  bg-dark ">
         <div class="p-5">
           <ul>
             <a href="#" class=" text-white">Contactanos</a>

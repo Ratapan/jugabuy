@@ -10,12 +10,8 @@ html{
     
 }
 
-.espacio{
-    margin-left: 5px;
-    scroll-margin-bottom: 10px;
-}
-.center{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+.centro{
+    text-justify: auto;
+
 }
