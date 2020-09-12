@@ -4,8 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrearCuenta_juegaBuy</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
+    <!-- Menu -->
+  <div class="container-fluid navbar bg-dark fixed-top  ">
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark  container">      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ion-icon name="game-controller"></ion-icon>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ">         
+          <a class="navbar-brand " href="#" ><i class="fas fa-gamepad"width="9px" height="9px" ></i></i></a>
+          <li class="nav-item active ">
+            <a class="nav-link" href="#">Novedades<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Juegos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Colección</a>
+          </li>       
+        </ul>
+      </div>
+
+      <!-- Buscador -->
+      <div class="mr-2">
+          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search m-2 text-white  " fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+          </svg>
+      </div>
+      <!-- Carrito -->
+      <div class="mr-2">
+        <a class="navbar-brand " href="#"><i class="fas fa-shopping-cart text-white" ></i></i></a>
+      </div>
+        
+    </nav>
+    </div>
+  </div>
+
+<!-- Formulario crear cuenta -->
+  <div class="container-fluid espacio">
+    <div class="container  ">
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Correo electrónico</label>
+                <input type="email" class="form-control" id="inputEmail4">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Contraseña</label>
+                <input type="password" class="form-control" id="inputPassword4">
+              </div>
+            </div>
+            <div>
+                <label for="phone">Teléfono</label>
+                <input type="tel" name="telefono" id="inputTel" placeholder="9-30574896" pattern="[0-9]{1}-[0-9]{8}" >
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Dirección</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+    </div>
+
+          <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/1dbd616d3c.js" crossorigin="anonymous"></script>
 </body>
 </html>
