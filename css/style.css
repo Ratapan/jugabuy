@@ -3,11 +3,25 @@
 .espacio{
     padding-top: 150px;
 }
+.espacio2
+{
+    margin-top: 100px;
+}
 
-.color{
+.color
+{
     
     color: white;
 }
 .recien{
-    width: ;: 100px;
+    width: 100px;
+}
+
+.marlr
+{
+    font-size: 18px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding-left : 15px;
+    padding-right : 15px;
 }
