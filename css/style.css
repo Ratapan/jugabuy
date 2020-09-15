@@ -7,6 +7,10 @@
 {
     margin-top: 100px;
 }
+.redondear_menu
+{
+    border-radius: 18px;
+}
 
 .color
 {
@@ -20,8 +24,7 @@
 .marlr
 {
     font-size: 18px;
-    margin-left: 6px;
-    margin-right: 6px;
-    padding-left : 15px;
-    padding-right : 15px;
+    margin-left: 12px;
+    margin-right: 12px;
+
 }
