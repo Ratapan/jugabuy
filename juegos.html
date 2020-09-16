@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Juegos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap" 
+    rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -107,13 +109,18 @@
     <div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
         <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
 
-            <div id="myBtnContainer " class="col-xs-12 d-inline-flex">
+            <div id="myBtnContainer " class="col-xs-12">
 
-                <button onclick="filterSelection('pc')" type="button" class="btn btn-light d-inline-flex marlr"
+                <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
                     href="#">PC</button>
                 <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
                     href="#">Switch</button>
-                <img onclick="filterSelection('all')" src="imagen/048-tower.svg" width="45px" alt="">
+                
+                    <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr " href="#">
+                    <img class="imagenm" src="imagen/048-tower.svg" width="45px" alt="">
+                    </button>
+                    
+
                 <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
                     href="#">PS4</button>
                 <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
@@ -121,7 +128,11 @@
             </div>
         </nav>
     </div>
+
+
     <!-- Elementos filtrados -->
+
+  
     <div class="container">
         <div class="row justify-content-around m-2  ">
 
@@ -229,7 +240,6 @@
             <!-- SWSWSWSWSWSWSWWSWSWSWSWSWSWSWSWSW -->
 
             <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
-
             <div class="filterDiv xb  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
                 <div class="border redondear_menu">
                     <img src="imagen/juegos/xb_1.jpeg" class="img-fluid " alt="">

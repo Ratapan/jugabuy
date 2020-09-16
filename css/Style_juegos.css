@@ -1,3 +1,22 @@
+.imagenm
+{
+  padding: 0px;
+}
+
+.marlr
+{
+  font-family: 'Roboto', sans-serif;
+  display: inline-flex;
+  font-size: 18px;
+  margin-left: 26px;
+  margin-right: 26px;
+ 
+
+}
+.redondear_menu
+{
+    border-radius: 18px;
+}
 .container {
     overflow: hidden;
     

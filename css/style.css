@@ -6,11 +6,9 @@
 .espacio2
 {
     margin-top: 80px;
+    
 }
-.redondear_menu
-{
-    border-radius: 18px;
-}
+
 
 .color
 {
@@ -21,10 +19,3 @@
     width: 100px;
 }
 
-.marlr
-{
-    font-size: 18px;
-    margin-left: 12px;
-    margin-right: 12px;
-
-}
