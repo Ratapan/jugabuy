@@ -5,12 +5,10 @@
 }
 .espacio2
 {
-    margin-top: 100px;
+    margin-top: 80px;
+    
 }
-.redondear_menu
-{
-    border-radius: 18px;
-}
+
 
 .color
 {
@@ -20,15 +18,4 @@
 .recien{
     width: 100px;
 }
-.cosas_carta
-{
-    width: 80%;
-    font-size: 12px;
-}
-.marlr
-{
-    font-size: 18px;
-    margin-left: 12px;
-    margin-right: 12px;
 
-}

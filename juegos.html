@@ -5,165 +5,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Juegos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap" 
+    rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Style_juegos.css">
+
 
 </head>
 
 <body>
     <!-- holamundo!!-->
-    <!-- Menu -->
-    <div class="container-fluid navbar bg-dark fixed-top  ">
-        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark  container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ion-icon name="game-controller"></ion-icon>
+    <header>
+        <!-- Menu -->
+        <div class="container-fluid navbar bg-dark fixed-top  ">
+            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark  container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ion-icon name="game-controller"></ion-icon>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ">
-                    <a class="navbar-brand " href="index.html"><i class="fas fa-gamepad" width="9px"
-                            height="9px"></i></i></a>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Juegos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="novedades.html">Novedades</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Buscador -->
-            <div class="mr-2">
-                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search m-2 text-white  "
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                    <path fill-rule="evenodd"
-                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-                </svg>
-            </div>
-            <div class="mr-2">
-                <a class="navbar-brand " href="#"><i class="fas fa-shopping-cart text-white"></i></i></a>
-            </div>
-            <!-- Usuario -->
-            <div>
-                <a class="navbar-brand" href="#"><i class="fas fa-user text-white " type="button" data-toggle="modal"
-                        data-target="#staticBackdrop"></i></a>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Modal de Iniciar Sesion -->
-    <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog d-flex justify-content-center">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesión</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <a class="navbar-brand " href="index.html"><i class="fas fa-gamepad" width="9px"
+                                height="9px"></i></i></a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Juegos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="novedades.html">Novedades</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="modal-footer d-flex justify-content-center">
-                    <form class=" d-block" method="GET">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Correo electrónico</label>
-                            <input placeholder="Pepe001" type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                <!-- Buscador -->
+                <div class="mr-2">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search m-2 text-white  "
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                        <path fill-rule="evenodd"
+                            d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                    </svg>
+                </div>
+                <div class="mr-2">
+                    <a class="navbar-brand " href="#"><i class="fas fa-shopping-cart text-white"></i></i></a>
+                </div>
+                <!-- Usuario -->
+                <div>
+                    <a class="navbar-brand" href="#"><i class="fas fa-user text-white " type="button"
+                            data-toggle="modal" data-target="#staticBackdrop"></i></a>
+                </div>
+            </nav>
+        </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">contraseña</label>
-                            <input placeholder="contraseña" type="password" class="form-control"
-                                id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
-                        </div>
-                        <button type="submit" class="btn btn-dark">Entrar</button>
-                        <div>
-                            <a href="CrearCuenta.html" type="button" target="_blank" class="btn btn-dark mt-4">Crear
-                                Cuenta</a>
-                        </div>
-                    </form>
+        <!-- Modal de Iniciar Sesion -->
+        <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog d-flex justify-content-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Iniciar Sesión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <form class=" d-block" method="GET">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Correo electrónico</label>
+                                <input placeholder="Pepe001" type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">contraseña</label>
+                                <input placeholder="contraseña" type="password" class="form-control"
+                                    id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Entrar</button>
+                            <div>
+                                <a href="CrearCuenta.html" type="button" target="_blank" class="btn btn-dark mt-4">Crear
+                                    Cuenta</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </header>
 
 
-
-
-
-    <!--sub menu-->
-    <div class="espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
+    <!--Sub-menu de filtros-->
+    <div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
         <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
-           
-            <div class="col-xs-12 d-inline-flex">
+
+            <div id="myBtnContainer " class="col-xs-12">
+
+                <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
+                    href="#">PC</button>
+                <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">Switch</button>
                 
-            <button type="button" class="btn btn-light d-inline-flex marlr" href="#">PC</button>
-            <button type="button" class="btn btn-light d-inline-flex marlr" href="#">Switch</button>
-            <img src="imagen/048-tower.svg" width="45px" alt="">
-            <button type="button" class="btn btn-light d-inline-flex marlr" href="#">PS4</button>
-            <button type="button" class="btn btn-light d-inline-flex marlr" href="#">Xbox</button>
-        </div>
+                    <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr " href="#">
+                    <img class="imagenm" src="imagen/048-tower.svg" width="45px" alt="">
+                    </button>
+                    
+
+                <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">PS4</button>
+                <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">Xbox</button>
+            </div>
         </nav>
     </div>
 
 
+    <!-- Elementos filtrados -->
 
-
-    <!--texto inicio  -->
-    <div class="container  ">
-        <div class="row justify-content-center">
-            <div class="text-center">
-                <h3 class="">Disfruta de nuestros juegos</h3>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <!--Molde de Cards para venta -->
-    </div>
-    <div class="container  ">
+  
+    <div class="container">
         <div class="row justify-content-around m-2  ">
-            
-            <div class="col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
-                <div class="tamagno_carta border redondear_menu">
-                <img src="imagen/2.jpg" class="img-fluid " alt="">
-                <h5 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h5>
-                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <!-- PCPCPCPCPCPCPCPCPCPCPCPCPCPCPC -->
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_1.jpeg" class="img-fluid " alt="">
+                    <h5 class="">Grand Theft Auto V</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_2.jpg" class="img-fluid " alt="">
+                    <h5 class="">The Elder Scrolls V: Skyrim</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_3.jpeg" class="img-fluid " alt="">
+                    <h5 class="">My Friend Pedro</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_4.jpeg" class="img-fluid " alt="">
+                    <h5 class="">Batman: Arkham Collection</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_5.jpg" class="img-fluid " alt="">
+                    <h5 class="">Dark Souls 3</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv pc  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/pc_6.jpg" class="img-fluid " alt="">
+                    <h5 class="">Dragon Ball FighterZ (Ultimate Edition)</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <!-- PCPCPCPCPCPCPCPCPCPCPCPCPCPCPC -->
+
+            <!-- P4P4P4P4P4P4P4P4PP4P4P4P4P4P4P4P -->
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/P4_1.jpg" class="img-fluid " alt="">
+                    <h5 class="">NBA 2K21</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
 
-            <div class="col-xs-12  col-md-3 col-lg-3  text-center shadow px-2 mb-4 ">
-                <img src="imagen/2.jpg" class="img-fluid" alt="">
-                <h4 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/P4_2.jpg" class="img-fluid " alt="">
+                    <h5 class="">Fifa 21</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
 
-            <div class="col-xs-12 col-md-3 col-lg-3  text-center shadow px-2 mb-4  ">
-                <img src="imagen/2.jpg" class="img-fluid" alt="">
-                <h4 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/P4_3.jpg" class="img-fluid " alt="">
+                    <h5 class="">Marvel’s Avengers</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
-            <div class="col-xs-12 col-md-3 col-lg-3  text-center shadow px-2 mb-4  ">
-                <img src="imagen/2.jpg" class="img-fluid" alt="">
-                <h4 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit</h4>
-                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/P4_4.jpg" class="img-fluid " alt="">
+                    <h5 class="">Dragon Ball: Kakarot</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
+            <!-- P4P4P4P4P4P4P4P4PP4P4P4P4P4P4P4P -->
+
+
+            <!-- SWSWSWSWSWSWSWWSWSWSWSWSWSWSWSWSW -->
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-jus px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/Sw_1.jpg" class="img-fluid " alt="">
+                    <h5 class="">Minecraft Dungeons: Hero Edition</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class=" border redondear_menu">
+                    <img src="imagen/juegos/Sw_2.jpg" class="img-fluid " alt="">
+                    <h5 class="">Zelda breath of the wild</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/Sw_3.jpg" class="img-fluid " alt="">
+                    <h5 class="">Super Mario 3D All-Stars NSW</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <!-- SWSWSWSWSWSWSWWSWSWSWSWSWSWSWSWSW -->
+
+            <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
+            <div class="filterDiv xb  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/xb_1.jpeg" class="img-fluid " alt="">
+                    <h5 class="">Borderlands (GOTY)</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="filterDiv xb  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="border redondear_menu">
+                    <img src="imagen/juegos/xb_2.jpeg" class="img-fluid " alt="">
+                    <h5 class="">Gears of War 3</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
+
         </div>
     </div>
+
+    <!--Fin del sub-menu de filtros-->
 
 
     <!-- Footer -->
@@ -229,6 +326,60 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/1dbd616d3c.js" crossorigin="anonymous"></script>
+
+    <!--JS de los filtros-->
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current control button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <!--Fin del JS de los filtros-->
+
+
 </body>
 
 </html>
