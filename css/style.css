@@ -5,8 +5,10 @@
 }
 .espacio2
 {
-    margin-top: 100px;
+    margin-top: 80px;
+    
 }
+
 
 .color
 {
@@ -17,11 +19,3 @@
     width: 100px;
 }
 
-.marlr
-{
-    font-size: 18px;
-    margin-left: 6px;
-    margin-right: 6px;
-    padding-left : 15px;
-    padding-right : 15px;
-}
