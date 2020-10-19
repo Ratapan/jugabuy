@@ -6,3 +6,6 @@ def Inicio(request):
 
 def Cuenta(request):
     return render(request, 'modelo/crearcuenta.html')
+
+def Carrito(request):
+    return render(request, 'modelo/carrito.html')
