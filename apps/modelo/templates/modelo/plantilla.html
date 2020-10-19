@@ -5,14 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{% static'modelo/imagen/Mando ico.png'%}">
     {% block nom %}
     {% endblock nom %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="{% static'modelo/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static'modelo/css/style.css'%}">
-    <link rel="stylesheet" href="{% static'modelo/css/Style_juegos.css'%}">
+    <link rel="stylesheet" href="{% static 'modelo/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'modelo/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'modelo/css/Style_juegos.css'%}">
 
 </head>
 
@@ -29,7 +28,8 @@
 
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav  ">
-                    <a class="navbar-brand active " href="index.html"><img src="{% static'modelo/imagen/Group 1 (1).png'%}" alt=""
+                    <a class="navbar-brand active " href=" {% url 'Inicio' %}">
+                        <img src="{% static 'modelo/imagen/Group 1 (1).png'%}" alt=""
                             class="navbar-nav"></a>
                     <li class="nav-item ">
                         <a class="nav-link " href="juegos.html">Juegos</a>
@@ -94,9 +94,9 @@
                         </div>
                         <a href="perfil.html" type="submit" class="btn btn-dark">Entrar</a>
                         <div>
-                            <a href="CrearCuenta.html" type="button" target="_blank" class="btn btn-dark mt-4">Crear
-                                Cuenta</a>
+                            <a class=" btn btn-dark mt-4" type="button"  href="{% url 'cuenta' %}">Crear Cuenta</a>
                         </div>
+                
                     </form>
                 </div>
             </div>
@@ -169,7 +169,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <script src="{% static'modelo/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'modelo/js/bootstrap.min.js'%}"></script>
     <script src="https://kit.fontawesome.com/1dbd616d3c.js" crossorigin="anonymous"></script>
 </body>
 
