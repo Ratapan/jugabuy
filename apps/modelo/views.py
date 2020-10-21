@@ -9,3 +9,9 @@ def Cuenta(request):
 
 def Carrito(request):
     return render(request, 'modelo/carrito.html')
+
+def Juego(request):
+    return render(request, 'modelo/juegos.html')
+
+def Perfil(request):
+    return render(request, 'modelo/perfil.html')

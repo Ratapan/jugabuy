@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'modelo/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'modelo/css/style.css'%}">
     <link rel="stylesheet" href="{% static 'modelo/css/Style_juegos.css'%}">
+    
 
 </head>
 
@@ -32,7 +33,7 @@
                         <img src="{% static 'modelo/imagen/Group 1 (1).png'%}" alt=""
                             class="navbar-nav"></a>
                     <li class="nav-item ">
-                        <a class="nav-link " href="juegos.html">Juegos</a>
+                        <a class="nav-link " href="{%  url 'juego'%}">Juegos</a>
                     </li>
                     <li class="nav-item  ">
                         <a class="nav-link" href="novedades.html">Novedades</a>
@@ -92,7 +93,7 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
                         </div>
-                        <a href="perfil.html" type="submit" class="btn btn-dark">Entrar</a>
+                        <a href="{%  url 'perfil'%}" type="submit" class="btn btn-dark">Entrar</a>
                         <div>
                             <a class=" btn btn-dark mt-4" type="button"  href="{% url 'cuenta' %}">Crear Cuenta</a>
                         </div>
