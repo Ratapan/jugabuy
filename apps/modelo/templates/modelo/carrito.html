@@ -1,0 +1,60 @@
+{% extends 'modelo/plantilla.html'%}
+
+{%  load static  %}
+   
+  {% block nom %}
+    <title>Carro de Compra</title>
+  {% endblock nom %}
+
+
+  {% block main %}
+    
+  <!-- Carrito de Compra-->
+  <div class="container-fluid espacio  ">      
+    <div class="container col-md-9 shadow p-4 mb-4">
+        <div>
+            <h3 class="mb-4">Carro de Compra</h3>
+        </div>
+        <form class="">            
+            <div class="form-row col-xs-12 ">
+                <div class="form-group col-md-7 letra mx-2 ">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{% static 'modelo/imagen/juegos/fifa 21 ps4.jpg'%}" class="img-fluid"   alt="   ">                           
+                        </div>  
+                        <div class="col-2 ">
+                          <label for="labelNombrejuego">FIFA 21 PS4</label>
+      
+                        </div>
+                        <div class=" col-md-2 ">
+                          <label for="inputCantidad">Cantidad</label>
+                          <input type="number" min="1" max="6">
+                        </div>
+                        <div class="col-md-2 ">
+                          <label for="inputPrecio">Precio</label>
+                          <label for="valor"></label>                   
+                        </div>
+                        <div class="col-md-2 ">
+                          <label for="eliminar">Eliminar</label>
+                          <input type="button" value="X" class=" btn btn-dark" >
+                       
+                        </div>
+                    </div>                                
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Resumen de tu Compra</h5>
+                        <p class="card-text">Total a Pagar</p>
+                        <p class="card-text">$0000000</p>
+                        <a href="#" class="btn btn-dark">Comprar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </form>
+    </div>
+</div>
+{% endblock main %}
