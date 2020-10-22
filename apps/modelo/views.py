@@ -15,3 +15,6 @@ def Juego(request):
 
 def Perfil(request):
     return render(request, 'modelo/perfil.html')
+
+def Novedades(request):
+    return render(request, 'modelo/novedades.html')
