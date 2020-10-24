@@ -177,6 +177,17 @@
                 </div>
             </div>
 
+<!--for para la vista de los juegos-->>
+            {% for i in juego %}
+            <div class="filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/{{i.j_port}}' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">{{i.j_nom}}</h5>
+                    <p class="parrafo_carta">{{i.j_desc}}</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            {% endfor %}
             <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
 
         </div>

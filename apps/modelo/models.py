@@ -62,11 +62,13 @@ class Juego(models.Model):
     j_nom    = models.CharField(max_length=100, null=False, blank=False)
     j_plt    = models.CharField(max_length=10, null=False, blank=False)
     j_desc   = models.CharField(max_length=2000, null=False, blank=False)
-    j_port   = models.ImageField(null=False, blank=False)
+    j_port   = models.CharField(max_length=10, null=False, blank=False)
     j_price  = models.IntegerField(null=False, blank=False)
     j_fe_sal = models.DateField(null=False, blank=False)
     j_status = models.IntegerField(null=False, blank=False)
     j_stock  = models.IntegerField(null=False, blank=False)
+    def __str__(self):
+        return (f'{self.j_nom}   |   {self.j_plt}') 
 
 class Detalle(models.Model):
     det_id     = models.AutoField( primary_key=True, null=False, blank=False)
