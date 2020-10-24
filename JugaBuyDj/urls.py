@@ -23,4 +23,6 @@ urlpatterns = [
     path('', include('apps.modelo.urls')),
     path('crearcuenta/',views.Cuenta, name="cuenta"),
     path('carrito/',views.Carrito, name="carrito"),
+
+    path('perfil/',views.Perfil, name="perfil"),
 ]
