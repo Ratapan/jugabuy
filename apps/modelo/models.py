@@ -59,22 +59,22 @@ class Cesta(models.Model):
 
 class Juego(models.Model):
     j_id     = models.AutoField(primary_key=True, null=False, blank=False)
-    j_nom    = models.CharField(max_length=100, null=False, blank=False)
-    j_plt    = models.CharField(max_length=10, null=False, blank=False)
-    j_desc   = models.CharField(max_length=2000, null=False, blank=False)
-    j_port   = models.CharField(max_length=10, null=False, blank=False)
-    j_price  = models.IntegerField(null=False, blank=False)
-    j_fe_sal = models.DateField(null=False, blank=False)
-    j_status = models.IntegerField(null=False, blank=False)
-    j_stock  = models.IntegerField(null=False, blank=False)
+    j_nom    = models.CharField(max_length=100, null=False, blank=False, verbose_name="Nombre")
+    j_plt    = models.CharField(max_length=10, null=False, blank=False, verbose_name="Plataforma")
+    j_desc   = models.CharField(max_length=2000, null=False, blank=False, verbose_name="Descripcion")
+    j_port   = models.CharField(max_length=10, null=False, blank=False, verbose_name="Nombre de portada")
+    j_price  = models.IntegerField(null=False, blank=False, verbose_name="Precio")
+    j_fe_sal = models.DateField(null=False, blank=False, verbose_name="Fecha de salida")
+    j_status = models.IntegerField(null=False, blank=False, verbose_name="Status")
+    j_stock  = models.IntegerField(null=False, blank=False, verbose_name="Stock")
     def __str__(self):
         return (f'{self.j_nom}   |   {self.j_plt}') 
 
 class Detalle(models.Model):
     det_id     = models.AutoField( primary_key=True, null=False, blank=False)
-    det_can    = models.IntegerField( null=False, blank=False)
-    det_price  = models.IntegerField( null=False, blank=False)
-    det_status = models.IntegerField( null=False, blank=False)
+    det_can    = models.IntegerField( null=False, blank=False, verbose_name="Cantidad")
+    det_price  = models.IntegerField( null=False, blank=False, verbose_name="Precio")
+    det_status = models.IntegerField( null=False, blank=False, verbose_name="Status")
     cesta_id   = models.ForeignKey(Cesta, null=False, blank=False, on_delete= models.DO_NOTHING)
     jueg_id    = models.ForeignKey(Juego, null=False, blank=False, on_delete= models.DO_NOTHING)
 
