@@ -12,5 +12,6 @@ urlpatterns=[
     path('Juegos', Juego_v, name="juego"),
     path('Perfil', Perfil, name="perfil"),
     path('novedades', Novedades, name="novedades"),
+    
 
 ]

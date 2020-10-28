@@ -77,27 +77,28 @@
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <form class=" d-block" method="GET">
+
+                    <form class=" d-block" method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Correo electrónico</label>
-                            <input placeholder="Pepe001" type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <label>Correo electrónico</label>
+                            <input placeholder="Pepe001" type="email" class="form-control" id="username"  aria-describedby="emailHelp">
 
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">contraseña</label>
-                            <input placeholder="contraseña" type="password" class="form-control"
-                                id="exampleInputPassword1">
+                            <label>contraseña</label>
+                            <input placeholder="contraseña" type="password" class="form-control" id="password" >
                         </div>
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
                         </div>
-                        <a href="{%  url 'perfil'%}" type="submit" class="btn btn-dark">Entrar</a>
+                        <a onclick = "login()" type="submit" class="btn btn-dark">Entrar</a>
                         <div>
                             <a class=" btn btn-dark mt-4" type="button"  href="{% url 'cuenta' %}">Crear Cuenta</a>
                         </div>
                 
+
                     </form>
                 </div>
             </div>
@@ -171,6 +172,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="{% static 'modelo/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'modelo/js/login.js'%}"></script>
     <script src="https://kit.fontawesome.com/1dbd616d3c.js" crossorigin="anonymous"></script>
 </body>
 

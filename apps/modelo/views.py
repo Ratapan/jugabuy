@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from apps.modelo.models import Juego
+from apps.modelo.models import Juego,Usuario
+from rest_framework.decorators import api_view
+from django.http import JsonResponse,Http404,HttpResponse
+from rest_framework.response import Response
+from apps.modelo.serializers import UsuarioSerializer
+from rest_framework import status
+
 # Create your views here.
 def Inicio(request):
     return render(request,'modelo/index.html')
@@ -19,3 +25,33 @@ def Perfil(request):
 
 def Novedades(request):
     return render(request, 'modelo/novedades.html')
+
+
+@api_view(['GET'])
+def GetUser(request):
+
+    try:
+        result = Usuario.objects.all()
+       
+    except Usuario.DoesNotExist:
+        raise Http404("User does not exist")
+
+    print(result)
+    return render(request, 'modelo/index.html',{'boby':result})
+
+
+
+@api_view(['POST'])
+def login(request):
+    # AQUI SE OBTIENE LA DATA DEL BODY
+    username = request.data['username'] 
+    print(username)
+    # COMPARO EL EMAIL CON EL EMAIL DE LA BD
+    user= Usuario.objects.get(us_mail=username)
+
+    # COMPARANDO PASS CON LA PASS DE LA DB
+    if user.us_contr == request.data['password']:
+        return JsonResponse({'ok': username})
+        # return render(request, 'modelo/perfil.html')
+    else:
+        return JsonResponse({'false': username})
