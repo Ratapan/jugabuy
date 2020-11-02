@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.modelo.models import Juego,Usuario,Region
+from apps.modelo.models import Juego,Usuario,Region,Ciudad
 
 from rest_framework.decorators import api_view
 from django.http import JsonResponse,Http404,HttpResponse
@@ -35,8 +35,9 @@ def Novedades(request):
 
 def mostrarRegiones(request):
     region = Region.objects.all()
+    ciudad = Ciudad.objects.all()
     print(region)
-    return render(request,'modelo/crearcuenta.html',{'region':region})
+    return render(request,'modelo/crearcuenta.html',{'region':region, 'ciudad':ciudad})
 
 
 @api_view(['GET'])
