@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from apps.modelo.models import Juego,Usuario
+from apps.modelo.models import Juego,Usuario,Region
+
 from rest_framework.decorators import api_view
 from django.http import JsonResponse,Http404,HttpResponse
 from rest_framework.response import Response
@@ -10,8 +11,8 @@ from rest_framework import status
 def Inicio(request):
     return render(request,'modelo/index.html')
 
-def Cuenta(request):
-    return render(request, 'modelo/crearcuenta.html')
+# def Cuenta(request):
+#     return render(request, 'modelo/crearcuenta.html')
 
 def Carrito(request):
     return render(request, 'modelo/carrito.html')
@@ -25,6 +26,17 @@ def Perfil(request):
 
 def Novedades(request):
     return render(request, 'modelo/novedades.html')
+
+
+# def mostrarRegiones(request):
+#     region = Region.objects.all()
+#     print(region)
+#     return render(request,'modelo/crearcuenta.html',{'region':region})
+
+def mostrarRegiones(request):
+    region = Region.objects.all()
+    print(region)
+    return render(request,'modelo/crearcuenta.html',{'region':region})
 
 
 @api_view(['GET'])
