@@ -35,7 +35,7 @@ today = mm + '/' + dd + '/' + yyyy;
     }
 
     function register() {
-       console.log('23<dszfxgcvb')
+  
 
         var $us_rut = document.getElementById("rut").value;
         var $us_mail = document.getElementById("Email").value;
@@ -50,33 +50,39 @@ today = mm + '/' + dd + '/' + yyyy;
         //var $id_rol = document.getElementById("").value;
         //var $id_ciud = document.getElementById("").value;
         
+        if ($us_contr===document.getElementById("Passwordre").value) {
+            
+            fetch('http://127.0.0.1:8000/register', {
+                method: 'POST', //POST, PUT, DELETE
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers:{'Content-Type': 'application/json',"X-CSRFToken": $crf_token},
+                redirect: 'follow',
+                body: JSON.stringify(
+                    {
+                     us_rut:parseInt($us_rut),
+                     us_mail:$us_mail,
+                     us_nom: $us_nom,
+                     us_apes:$us_apes,
+                     us_contr:$us_contr,
+                     us_nac:$us_nac,
+                     us_creac:today,
+                     us_tel:parseInt($us_tel),
+                     us_dir:$us_dir,
+                     us_sald:0,
+                     id_rol:1,
+                     id_ciud:1
+                    
+                    }
+                    )
+            })
+                .then(response => response.json())
+                // .then(data => alert(data.ok)) 
+        } else {
+            alert("Revisar pass")
+        }
 
-        fetch('http://127.0.0.1:8000/register', {
-            method: 'POST', //POST, PUT, DELETE
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            headers:{'Content-Type': 'application/json',"X-CSRFToken": $crf_token},
-            redirect: 'follow',
-            body: JSON.stringify(
-                {
-                 us_rut:parseInt($us_rut),
-                 us_mail:$us_mail,
-                 us_nom: $us_nom,
-                 us_apes:$us_apes,
-                 us_contr:$us_contr,
-                 us_nac:$us_nac,
-                 us_creac:today,
-                 us_tel:parseInt($us_tel),
-                 us_dir:$us_dir,
-                 us_sald:0,
-                 id_rol:1,
-                 id_ciud:1
-                
-                }
-                )
-        })
-            .then(response => response.json())
-            .then(data => alert(data.ok)) 
+
 
     }
