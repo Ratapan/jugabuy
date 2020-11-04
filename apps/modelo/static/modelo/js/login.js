@@ -1,19 +1,10 @@
-// function l()
 
-// fetch('http://127.0.0.1:8000/login', {
-//             method: 'POST',
-//             body: JSON.stringify({
-//                 name: "pepe@gmail.com",
-//                 surname: "pepe1234"
-//             }),
-//             headers: {
-//                 "Content-type": "application/json"
-//             })
-//       .then(response => response.json())
-//       .then(json => console.log(json))
-
-
+//token
 var $crf_token = $('[name="csrfmiddlewaretoken"]').attr('value');
+
+
+//fecha actual
+
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
