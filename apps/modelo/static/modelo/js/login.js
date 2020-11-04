@@ -61,7 +61,7 @@ today = mm + '/' + dd + '/' + yyyy;
                 redirect: 'follow',
                 body: JSON.stringify(
                     {
-                     us_rut:parseInt($us_rut),
+                     us_rut:$us_rut,
                      us_mail:$us_mail,
                      us_nom: $us_nom,
                      us_apes:$us_apes,

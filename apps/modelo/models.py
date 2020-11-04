@@ -24,10 +24,10 @@ class Rol(models.Model):
 #seccion por en cima de usuario
 class Usuario(models.Model):
     us_id    = models.AutoField( primary_key=True, null=False, blank=False)
-    us_rut   = models.IntegerField( null=False, blank=False, verbose_name="Rut")
+    us_rut   = models.CharField( max_length=9,null=False, blank=False, verbose_name="Rut")
     us_mail  = models.EmailField(null=False, verbose_name="Mail")
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
-    us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Capellido")
+    us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Apellido")
     us_contr = models.CharField(max_length=20, null=False, blank=False, verbose_name="Contraseña")
     us_nac   = models.DateField(null=False, blank=False, verbose_name="Nacimiento")
     us_creac = models.DateField(null=False, blank=False, verbose_name="Creacion de usuario")
