@@ -27,6 +27,8 @@ urlpatterns = [
 
     path('perfil/',views.Perfil, name="perfil"),
     path('login', views.login),
+    path('register', views.register),
     path('getuser', views.GetUser),
+    
 
 ]

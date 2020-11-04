@@ -6,7 +6,8 @@ from django.http import JsonResponse,Http404,HttpResponse
 from rest_framework.response import Response
 from apps.modelo.serializers import UsuarioSerializer
 from rest_framework import status
-
+from .forms import UserForm 
+import json
 # Create your views here.
 def Inicio(request):
     return render(request,'modelo/index.html')
@@ -68,3 +69,26 @@ def login(request):
         # return render(request, 'modelo/perfil.html')
     else:
         return JsonResponse({'false': username})
+
+
+
+@api_view(['POST'])
+def register(request):
+    print((request.data))
+    user = UserForm(request.data) 
+    user.save() 
+    return JsonResponse(request.data)
+    # user= Usuario.objects.get(us_mail=request.data['us_mail'])
+    
+   
+    # if user.us_mail==request.data['us_mail']:
+    #     return JsonResponse({'respuesta': "Usuario ya existe"})
+    # else:
+    #     user = UserForm(request.data) 
+    #     user.save() 
+    #     return JsonResponse(request.data)
+
+
+
+
+
