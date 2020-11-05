@@ -38,6 +38,11 @@
                     <li class="nav-item  ">
                         <a class="nav-link" href="{%  url 'novedades' %}">Novedades</a>
                     </li>
+                    {%  if request.user.is_authenticated  %}
+                    <li class="nav-item  ">
+                            <a class="nav-link" href="{%  url 'perfil'%}username={{user.username}}">Perfil</a>
+                        </li>
+                    {%  endif  %}
                 </ul>
             </div>
 
@@ -57,10 +62,17 @@
                         type="button"></i></i></a>
             </div>
             <!-- Usuario -->
+            {%  if request.user.is_authenticated  %}
             <div>
-                <a class="navbar-brand" href="#"><i class="fas fa-user text-white " type="button" data-toggle="modal"
-                        data-target="#staticBackdrop"></i></a>
+                    <a class="navbar-brand" href="{% url 'logout' %}"><i class="fas fa-user text-white " type="button" ></i></a>
+                </div>
+            {%  else  %}
+            <div>
+                    <a class="navbar-brand" href="{% url 'login' %}"><i class="fas fa-user text-white " type="button" ></i></a>
             </div>
+            {%  endif  %}
+            
+
         </nav>
     </div>
 

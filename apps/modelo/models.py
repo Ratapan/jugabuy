@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -22,13 +24,14 @@ class Rol(models.Model):
         return self.desc_rol  
 
 #seccion por en cima de usuario
-class Usuario(models.Model):
-    us_id    = models.AutoField( primary_key=True, null=False, blank=False)
+class perfil(models.Model):
+    nom_user = models.CharField(max_length=20, null=True, blank=True)
+    us_id    = models.AutoField(primary_key=True, null=False, blank=False)
     us_rut   = models.IntegerField( null=False, blank=False, verbose_name="Rut")
     us_mail  = models.EmailField(null=False, verbose_name="Mail")
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
     us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Capellido")
-    us_contr = models.CharField(max_length=20, null=False, blank=False, verbose_name="Contraseña")
+    #us_contr = models.CharField(max_length=20, null=False, blank=False, verbose_name="Contraseña")
     us_nac   = models.DateField(null=False, blank=False, verbose_name="Nacimiento")
     us_creac = models.DateField(null=False, blank=False, verbose_name="Creacion de usuario")
     us_tel   = models.IntegerField(null=False, blank=False, verbose_name="Telefono")
@@ -48,14 +51,14 @@ class Transacciones(models.Model):
     tr_tipo     = models.CharField(max_length=20, null=False, blank= False)
     us_rut      = models.IntegerField( null=False, blank=False)
     comp_id     = models.IntegerField( null=False, blank=False)
-    user_id     = models.ForeignKey(Usuario, null=False, blank=False,on_delete =models.DO_NOTHING)
+    user_id     = models.ForeignKey(perfil, null=False, blank=False,on_delete =models.DO_NOTHING)
 
 class Cesta(models.Model):
     ce_id      = models.AutoField(primary_key=True, null=False, blank=False)
     ce_fe_crec = models.DateField(null=False)
     ce_status  = models.IntegerField( null=False, blank=False)
     ce_total   = models.IntegerField( null=False, blank=False)
-    us_id      = models.ForeignKey(Usuario, null=False, blank=False, on_delete= models.CASCADE)
+    us_id      = models.ForeignKey(perfil, null=False, blank=False, on_delete= models.CASCADE)
 
 class Juego(models.Model):
     j_id     = models.AutoField(primary_key=True, null=False, blank=False)
@@ -84,7 +87,7 @@ class Compra(models.Model):
     com_fe    = models.DateField(null=False, blank=False)
     com_total = models.IntegerField(null=False, blank=False)
     us_rut    = models.IntegerField(null=False, blank=False)
-    us_id     = models.ForeignKey(Usuario, null=False, blank=False, on_delete= models.DO_NOTHING)
+    us_id     = models.ForeignKey(perfil, null=False, blank=False, on_delete= models.DO_NOTHING)
 
 class DetalleCompra(models.Model):
     detcom_id     = models.AutoField(primary_key=True, null=False, blank=False)
@@ -102,5 +105,5 @@ class Key(models.Model):
 class biblioteca(models.Model):
     bibl_id = models.AutoField( primary_key=True, null=False, blank=False)
     juego_id = models.ForeignKey(Juego, null=False, blank=False, on_delete= models.DO_NOTHING)
-    usu_id   = models.ForeignKey(Usuario, null=False, blank=False, on_delete= models.DO_NOTHING)
+    usu_id   = models.ForeignKey(perfil, null=False, blank=False, on_delete= models.DO_NOTHING)
 
