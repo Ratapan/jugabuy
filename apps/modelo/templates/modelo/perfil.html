@@ -1,0 +1,622 @@
+{%  extends 'modelo/plantilla.html' %}
+
+
+{% load static %}
+
+
+
+{% block nom %}
+
+<link rel="stylesheet" href="{% static 'modelo/css/css_perfil/perfil.css'%}">
+
+<title>Perfil de Usuario</title>
+
+{% endblock nom %}
+
+
+{% block main %}
+
+
+<!--Banner y Foto de perfil-->
+<div class="container db-social separacion">
+    <div class="jumbotron jumbotron-fluid">
+
+    </div>
+    <div class="container-fluid ">
+        <div class="row justify-content-center">
+            <div class="col-xl-12">
+                <div class="col-xl-12 col-md-12 d-flex justify-content-center">
+                    <div class="image-default">
+                        <img class="rounded-circle" src="{% static 'modelo/imagen/img_perfil/WW.png'%}" alt="...">
+                    </div>
+                    <div class="infos">
+                        <h2>{{perfil.nom_user}}</h2>
+                        <div>
+                            <button class="btn btn-dark ">Cambiar imagen de perfil</button>
+                            <button class="btn btn-dark ">Cambiar imagen de banner</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--End Banner y Foto de perfil.-->
+
+<!--Nav-opciones-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active text-secondary" id="home-tab" data-toggle="tab" href="#datos" role="tab"
+                        aria-controls="home" aria-selected="true">Datos Personales</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-secondary" id="profile-tab" data-toggle="tab" href="#biblioteca" role="tab"
+                        aria-controls="profile" aria-selected="false">Biblioteca de juegos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" id="contact-tab" data-toggle="tab" href="#historial" role="tab"
+                        aria-controls="contact" aria-selected="false">Historial de Compra</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" id="contact-tab" data-toggle="tab" href="#seguridad" role="tab"
+                        aria-controls="contact" aria-selected="false">Seguridad y Monedero</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!---->
+
+    
+    
+
+    <!--Datos perso-->
+    <div class="tab-content " id="myTabContent">
+        <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row">
+                <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <form>
+                        <div class="form-group">
+                            <label for="Name">Nombre Completo</label>
+                            <div class="fx">
+                                <label type="input" class="form-control " id="Name" aria-describedby="text"
+                                 ></label>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="Rut">Nº Rut</label>
+                            <input type="text" class="form-control" id="Rut" placeholder="Ej: 181283262" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="Nacimiento">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" id="Nacimiento" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="Phone">E-mail</label>
+                            <input type="email" class="form-control" id="Phone" placeholder="Ej: Heisenberg@xxx.com"
+                                disabled>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="Ciudad">Direccion</label>
+                        <input type="text" class="form-control" id="Ciudad" aria-describedby="text"
+                            placeholder="Ej:Negra Arroyo 308" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputRegioon">Ciudad</label>
+                        <select id="inputciudad" class="form-control" disabled>
+                            <option selected>Seleccione...</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputRegioon">Región</label>
+                        <select id="inputRegion" class="form-control" disabled>
+                            <option selected>Seleccione...</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="nav justify-content-center">
+                    <div>
+                        <imput class="btn btn-dark bt" type="button" value="activar" onclick="activarimput()">
+                            Modificar
+                            Datos</imput>
+                        <imput class="btn btn-dark bt" type="button">Guardar Cambios</imput>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--End Datos perso-->
+
+    
+
+        <!--Biblioteca-->
+        <div class="tab-pane fade" id="biblioteca" role="tabpanel" aria-labelledby="profile-tab">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div>
+                            <br>
+                            <nav class="navbar navbar-light justify-content-center">
+                                <form class="form-inline">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+                                </form>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card mb-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                                        <img src="{% static 'modelo/imagen/img_perfil/rd.jpg'%}" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Titulo juego</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <!--End Biblioteca-->
+
+
+        <!--Historial-->
+        <div class="tab-pane fade" id="historial" role="tabpanel" aria-labelledby="contact-tab">
+
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div>
+                            <br>
+                            <nav class="navbar navbar-light justify-content-center">
+                                <form class="form-inline">
+                                    <p class="mr-sm-2 my-2 my-sm-0">Desde: </p>
+                                    <input class="form-control mr-sm-2" type="date" aria-label="">
+                                    <p class="mr-sm-2 my-2 my-sm-0">Hasta: </p>
+                                    <input class="form-control mr-sm-2" type="date" aria-label="">
+                                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+                                </form>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-header bg-dark text-white">
+                                Nombre Juego
+                            </div>
+                            <div class="card-body">
+                                <div class="blockquote-footer fx">
+                                    <p>Plataforma:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Fecha:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Monto:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Tipo de Facturación:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-header bg-dark text-white">
+                                Nombre Juego
+                            </div>
+                            <div class="card-body">
+                                <div class="blockquote-footer fx">
+                                    <p>Plataforma:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Fecha:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Monto:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Tipo de Facturación:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-header bg-dark text-white">
+                                Nombre Juego
+                            </div>
+                            <div class="card-body">
+                                <div class="blockquote-footer fx">
+                                    <p>Plataforma:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Fecha:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Monto:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Tipo de Facturación:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-header bg-dark text-white">
+                                Nombre Juego
+                            </div>
+                            <div class="card-body">
+                                <div class="blockquote-footer fx">
+                                    <p>Plataforma:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Fecha:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Monto:</p>
+                                </div>
+                                <div class="blockquote-footer fx">
+                                    <p>Tipo de Facturación:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--End Historial-->
+
+        <!--Monedero Seguridad-->
+        <div class="tab-pane fade" id="seguridad" role="tabpanel" aria-labelledby="contact-tab">
+
+            <div class="container mt-5">
+                <div class="container-fluid row">
+                    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+                        <ul class="nav nav-tabs flex-column text-center" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active btn-dark" id="home-tab" data-toggle="tab" href="#Pagos"
+                                    role="tab" aria-controls="home" aria-selected="true">Administración de Pagos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-dark mt-3" id="profile-tab" data-toggle="tab" href="#Seguri"
+                                    role="tab" aria-controls="profile" aria-selected="false">Seguridad</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="container col-lg-8 col-md-8 col-sm-9 col-xs-9 tab-content" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="Pagos" role="tabpanel" aria-labelledby="home-tab">
+
+                            <nav class="navbar navbar-light bg-light ">
+                                <span class="navbar-text text-center">
+                                    Saldo del Monedero
+                                </span>
+                            </nav>
+                            <div class="container text-center mt-3">
+                                <h4>$00,000</h4>
+                            </div>
+                            <div class="container text-center mt-3">
+                                <div class="mt-3">
+                                    <button class="btn-dark bt">Agregar método de pago</button>
+                                </div>
+                                <div class="mt-2">
+                                    <button class="btn-dark bt">Agregar fondos</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="Seguri" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <nav class="navbar navbar-light bg-light ">
+                                <span class="navbar-text">
+                                    Editar Contraseña
+                                </span>
+                            </nav>
+                            <div class="container text-center mt-3">
+                                <form>
+                                    <div class="form-group">
+                                        <div>
+                                            <h4><small>Contraseña Actual</small></h4>
+                                        </div>
+                                        <div>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div>
+                                            <h4><small>Contraseña Nueva</small></h4>
+                                        </div>
+                                        <div>
+                                            <input type="password" class="form-control" id="pass1"
+                                                onkeypress="Validacion();" onkeydown="Validacion();"
+                                                onkeyup="Validacion();" required>
+                                        </div>
+                                        <div>
+                                            <h4><small>Repitir Contraseña</small></h4>
+                                        </div>
+                                        <div>
+                                            <input type="password" class="form-control" id="pass2"
+                                                onkeypress="Validacion();" onkeydown="Validacion();"
+                                                onkeyup="Validacion();" required>
+                                        </div>
+                                        <div class="container-fluid fx justify-content-center">
+                                            <div class="btnVali bg-light" id="confirmacion"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div>
+                                            <button class="btn-dark bt">Cambiar
+                                                Contraseña</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--End Monedero Seguridad-->
+<!--End Nav-opciones-->
+
+
+<!--Funciones-->
+<script type="text/JavaScript">
+                    function activarimput(){
+                        if (document.getElementById('Name').disabled == false)
+                        {
+                            document.getElementById('Name').disabled=true
+                            document.getElementById('Rut').disabled=true
+                            document.getElementById('Nacimiento').disabled=true
+                            document.getElementById('Phone').disabled=true
+                            document.getElementById('Ciudad').disabled=true
+                            document.getElementById('inputciudad').disabled=true
+                            document.getElementById('inputRegion').disabled=true
+                        } else{
+                            document.getElementById('Name').disabled=false
+                            document.getElementById('Rut').disabled=false
+                            document.getElementById('Nacimiento').disabled=false
+                            document.getElementById('Phone').disabled=false
+                            document.getElementById('Ciudad').disabled=false
+                            document.getElementById('inputciudad').disabled=false
+                            document.getElementById('inputRegion').disabled=false
+                        }
+                        
+                    }
+                </script>
+
+<script>
+    function Validacion() {
+
+        var password = document.getElementById('pass1').value;
+        var confirm = document.getElementById('pass2').value;
+
+        if (confirm == "" || password == "") {
+            var elemento = document.getElementById("confirmacion");
+            elemento.classList.remove('bg-success', 'bg-danger');
+            elemento.className += " bg-light";
+        }
+        else if (confirm != password) {
+            var elemento = document.getElementById("confirmacion");
+            elemento.classList.remove('bg-light', 'bg-success');
+            elemento.className += " bg-danger"
+        }
+        else if (confirm == password) {
+            var elemento = document.getElementById("confirmacion");
+            elemento.classList.remove('bg-danger', 'bg-light');
+            elemento.className += " bg-success";
+        }
+
+    }
+</script>
+<!--End Funciones-->
+
+
+
+{% endblock main %}

@@ -1,0 +1,201 @@
+{%  extends 'modelo/plantilla.html' %}
+
+
+{% load static %}
+
+    {% block nom %}
+    <title>Compra Juegos</title>
+    {% endblock nom %}
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap"rel="stylesheet">
+
+    {% block main %}
+
+    <!--Sub-menu de filtros-->
+    <div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
+        <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
+
+            <div id="myBtnContainer " class="col-xs-12">
+
+                <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
+                    href="#">PC</button>
+                <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">Switch</button>
+
+                <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr "
+                    href="#">
+                    <img class="imagenm" src="{% static 'modelo/imagen/048-tower.svg' %}" width="45px" alt="">
+                </button>
+
+                <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">PS4</button>
+
+                <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
+                    href="#">Xbox</button>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Elementos filtrados -->
+
+
+    <div class="container">
+        <div class="row justify-content-around m-2">
+
+            <!-- PCPCPCPCPCPCPCPCPCPCPCPCPCPCPC -->
+
+            <!-- PCPCPCPCPCPCPCPCPCPCPCPCPCPCPC -->
+
+            <!-- P4P4P4P4P4P4P4P4PP4P4P4P4P4P4P4P -->
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/P4_1.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">NBA 2K21</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/P4_2.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Fifa 21</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/P4_3.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Marvel’s Avengers</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <div class="filterDiv ps4  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta ">
+                    <img src="{% static 'modelo/imagen/juegos/P4_4.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Dragon Ball: Kakarot</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <!-- P4P4P4P4P4P4P4P4PP4P4P4P4P4P4P4P -->
+
+
+            <!-- SWSWSWSWSWSWSWWSWSWSWSWSWSWSWSWSW -->
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-jus px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/Sw_1.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Minecraft Dungeons: Hero Edition</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/Sw_2.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Zelda breath of the wild</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <div class="filterDiv sw  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/Sw_3.jpg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Super Mario 3D All-Stars NSW</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <!-- SWSWSWSWSWSWSWWSWSWSWSWSWSWSWSWSW -->
+
+            <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
+            <div class="filterDiv xb  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/xb_1.jpeg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Borderlands (GOTY)</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            <div class="filterDiv xb  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/xb_2.jpeg' %}" class="icarta img-fluid " alt="">
+                    <h5 class="">Gears of War 3</h5>
+                    <p class="parrafo_carta">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+
+<!--for para la vista de los juegos-->
+            {% for i in juego %}
+            <div class="filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+                <div class="Fcarta">
+                    <img src="{% static 'modelo/imagen/juegos/' %}{{i.j_port}}" class="icarta img-fluid " alt="">
+                    <h5 class="">{{i.j_nom}}</h5>
+                    <p class="parrafo_carta">{{i.j_desc}}</p>
+                    <a  type="button" class="btn btn-dark mb-2" href="#" > Comprar</a>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- XBXBXBXBXBXBXBXBXBXBXBXBXBXBXBBXB -->
+
+        </div>
+    </div>
+
+    <!--JS de los filtros-->
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current control button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <!--Fin del JS de los filtros-->
+
+
+    {% endblock main %}
