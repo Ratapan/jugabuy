@@ -30,7 +30,7 @@
                         <img class="rounded-circle" src="{% static 'modelo/imagen/img_perfil/WW.png'%}" alt="...">
                     </div>
                     <div class="infos">
-                        <h2>Nombre Usuario</h2>
+                        <h2>{{perfil.nom_user}}</h2>
                         <div>
                             <button class="btn btn-dark ">Cambiar imagen de perfil</button>
                             <button class="btn btn-dark ">Cambiar imagen de banner</button>
@@ -46,7 +46,7 @@
 </div>
 </div>
 </div>
-<!--End Banner y Foto de perfil-->
+<!--End Banner y Foto de perfil.-->
 
 <!--Nav-opciones-->
 <div class="container">
@@ -74,6 +74,9 @@
     </div>
     <!---->
 
+    
+    
+
     <!--Datos perso-->
     <div class="tab-content " id="myTabContent">
         <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="home-tab">
@@ -83,8 +86,8 @@
                         <div class="form-group">
                             <label for="Name">Nombre Completo</label>
                             <div class="fx">
-                                <input type="text" class="form-control " id="Name" aria-describedby="text"
-                                    placeholder="Ej: Walter White" disabled>
+                                <label type="input" class="form-control " id="Name" aria-describedby="text"
+                                 ></label>
 
                             </div>
                         </div>
@@ -152,7 +155,7 @@
         </div>
         <!--End Datos perso-->
 
-
+    
 
         <!--Biblioteca-->
         <div class="tab-pane fade" id="biblioteca" role="tabpanel" aria-labelledby="profile-tab">

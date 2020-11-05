@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.modelo.models import  Region, Ciudad, Rol, Usuario, Transacciones, Cesta, Juego, Compra, Key, DetalleCompra, Detalle, biblioteca
+from apps.modelo.models import  Region, Ciudad, Rol, perfil, Transacciones, Cesta, Juego, Compra, Key, DetalleCompra, Detalle, biblioteca
 # Register your models here.
 
 class UsuarioAdmin(admin.ModelAdmin):
@@ -8,7 +8,7 @@ class UsuarioAdmin(admin.ModelAdmin):
 admin.site.register(Region)
 admin.site.register(Ciudad)
 admin.site.register(Rol)
-admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(perfil, UsuarioAdmin)
 admin.site.register(Transacciones)
 admin.site.register(Cesta)
 admin.site.register(Juego)
