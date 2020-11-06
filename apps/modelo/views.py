@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.modelo.models import Juego, perfil
+from apps.modelo.models import Juego, perfil,Region,Ciudad
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -29,3 +29,10 @@ def Novedades(request):
 
 #def Login(request):
     #return render(request, 'modelo/login.html')
+
+
+def mostrarRegiones(request):
+    region = Region.objects.all()
+    ciudad = Ciudad.objects.all()
+    print(ciudad)
+    return render(request,'modelo/crearcuenta.html',{'region':region, 'ciudad':ciudad})
