@@ -21,7 +21,8 @@ from apps.modelo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.modelo.urls')),
-    path('crearcuenta/',views.Cuenta, name="cuenta"),
+    #path('crearcuenta/',views.Cuenta, name="cuenta"),
+    path('crearcuenta/',views.mostrarRegiones, name="cuenta"),
     path('carrito/',views.Carrito, name="carrito"),
 
     path('perfil/',views.Perfil, name="perfil"),
