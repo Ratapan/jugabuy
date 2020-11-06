@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.modelo.models import Juego, perfil,Region,Ciudad
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
+from django.contrib import messages
 # Create your views here.
+from .forms import CreateUserForm
+
 def Inicio(request):
     return render(request,'modelo/index.html')
 
@@ -29,6 +33,23 @@ def Perfil(request):
 def Cuenta(request):
     return render(request, 'modelo/crearcuenta.html')
 
+def registerPage(request):
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		form = CreateUserForm()
+		if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				form.save()
+				user = form.cleaned_data.get('username')
+				messages.success(request, 'Account was created for ' + user)
+
+				return redirect('Inicio')
+			
+
+		context = {'form':form}
+		return render(request, 'modelo/register.html', context)
 
 
 

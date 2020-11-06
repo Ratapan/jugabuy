@@ -15,6 +15,6 @@ urlpatterns=[
     path('novedades', views.Novedades, name="novedades"),
     path('login', LoginView.as_view(template_name='modelo/login.html'), name="login"),
     path('logout', LogoutView.as_view(template_name='modelo/index.html'), name="logout"),
-
+    path('register/', views.registerPage, name="register"),
 #     path('crearcuenta.html/',mostrarRegiones ,name="mostrarregiones"),  
     ]
