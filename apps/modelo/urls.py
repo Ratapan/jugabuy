@@ -9,7 +9,7 @@ urlpatterns=[
     path('', views.Inicio, name="Inicio"),
     path('CrearCuenta', views.Cuenta, name="cuenta"),
     path('carrito', views.Carrito, name="carrito"),
-    path('Juegos', views.Juego, name="juego"),
+    path('Juegos', views.Juegos, name="juego"),
     
     path('perfil', views.Perfil, name="perfil"),
     path('novedades', views.Novedades, name="novedades"),

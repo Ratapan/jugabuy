@@ -10,7 +10,7 @@ from .forms import CreateUserForm, PerfilForm
 def Inicio(request):
     return render(request,'modelo/index.html')
 
-def Juego(request):
+def Juegos(request):
     juegos = Juego.objects.all()
     return render(request, 'modelo/juegos.html',{'juego':juegos})
     
@@ -27,6 +27,7 @@ def Login(request):
 def Perfil(request):
     per = perfil.objects.get(nom_user= request.user.username)
     usu = request.user.username
+
     return render(request, 'modelo/perfil.html', {'per':usu})
 
 def Cuenta(request):
