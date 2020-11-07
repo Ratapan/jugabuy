@@ -124,3 +124,14 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'Inicio'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# # This will display email in Console.
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_USE_TES =True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'serviexpress2080@gmail.com'
+EMAIL_HOST_PASSWORD= 'Admin1003.,'
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
