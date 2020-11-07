@@ -12,15 +12,15 @@ class PerfilForm(ModelForm):
         fields = [
         "nom_user",
         "us_rut",
-        "us_mail",
+        #"us_mail",
         "us_nom",
         "us_apes",
         "us_nac",
-        "us_creac",
+        #"us_creac",
         "us_tel",
         "us_dir",
-        "us_sald",
-        "id_rol",
+        #"us_sald",
+        #"id_rol",
         "id_ciud"
     ]
 

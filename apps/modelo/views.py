@@ -27,7 +27,6 @@ def Login(request):
 def Perfil(request):
     per = perfil.objects.get(nom_user= request.user.username)
     usu = request.user.username
-    print(per.us_mail)
     return render(request, 'modelo/perfil.html', {'per':usu})
 
 def Cuenta(request):
