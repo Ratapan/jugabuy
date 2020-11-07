@@ -25,19 +25,19 @@ class Rol(models.Model):
 
 #seccion por en cima de usuario
 class perfil(models.Model):
-    nom_user = models.CharField(max_length=20, null=True, blank=True)
+    nom_user = models.CharField(max_length=20, null=True, blank=True,verbose_name="username")
     us_id    = models.AutoField(primary_key=True, null=False, blank=False)
     us_rut   = models.IntegerField( null=False, blank=False, verbose_name="Rut")
-    us_mail  = models.EmailField(null=False, verbose_name="Mail")
+    #us_mail  = models.EmailField(null=False, verbose_name="Mail")
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
-    us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Capellido")
+    us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Apellido")
     #us_contr = models.CharField(max_length=20, null=False, blank=False, verbose_name="Contraseña")
     us_nac   = models.DateField(null=False, blank=False, verbose_name="Nacimiento")
-    us_creac = models.DateField(null=False, blank=False, verbose_name="Creacion de usuario")
+    #us_creac = models.DateField(null=False, blank=False, verbose_name="Creacion de usuario")
     us_tel   = models.IntegerField(null=False, blank=False, verbose_name="Telefono")
     us_dir   = models.CharField(max_length= 50, null=False, blank=False, verbose_name="Direccion")
-    us_sald  = models.IntegerField(null=False, blank=False, verbose_name="Saldo")
-    id_rol   = models.ForeignKey(Rol,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Rol")
+    #us_sald  = models.IntegerField(null=False, blank=False, verbose_name="Saldo")
+    #id_rol   = models.ForeignKey(Rol,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Rol")
     id_ciud  = models.ForeignKey(Ciudad,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Ciudad")
     def __str__(self):
         return (f'{self.us_nom} {self.us_apes}')  
