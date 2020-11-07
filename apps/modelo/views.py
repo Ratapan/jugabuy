@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib import messages
 # Create your views here.
-from .forms import CreateUserForm
+from .forms import CreateUserForm, PerfilForm
 
 def Inicio(request):
     return render(request,'modelo/index.html')
@@ -35,21 +35,32 @@ def Cuenta(request):
 
 def registerPage(request):
 	if request.user.is_authenticated:
-		return redirect('home')
+		return redirect('Inicio')
 	else:
+		#formulario user
 		form = CreateUserForm()
+		#formulario perfil
+		perfilform = PerfilForm(request.POST)
 		if request.method == 'POST':
 			form = CreateUserForm(request.POST)
 			if form.is_valid():
 				form.save()
 				user = form.cleaned_data.get('username')
 				messages.success(request, 'Account was created for ' + user)
+				if perfilform.is_valid():
+    					post = perfilform.save(commit=False)
+    					post.nom_user=user
+    					post.save()
+    					
 
 				return redirect('Inicio')
 			
 
-		context = {'form':form}
+		context = {'form':form,'perfilform':perfilform}
+
 		return render(request, 'modelo/register.html', context)
+
+
 
 
 
