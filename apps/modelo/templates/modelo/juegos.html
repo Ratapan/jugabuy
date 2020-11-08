@@ -3,111 +3,147 @@
 
 {% load static %}
 
-    {% block nom %}
-    <title>Compra Juegos</title>
-    {% endblock nom %}
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap"rel="stylesheet">
+{% block nom %}
+<title>Compra Juegos</title>
+{% endblock nom %}
 
-    {% block main %}
+<link rel="stylesheet" href="{% static 'modelo/css/Style_juegos.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap"
+    rel="stylesheet">
 
-    <!--Sub-menu de filtros-->
-    <div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
-        <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
+{% block main %}
 
-            <div id="myBtnContainer " class="col-xs-12">
+<!--Sub-menu de filtros-->
+<div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
+    <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
 
-                <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
-                    href="#">PC</button>
-                <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
-                    href="#">Switch</button>
+        <div id="myBtnContainer " class="col-xs-12">
 
-                <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr "
-                    href="#">
-                    <img class="imagenm" src="{% static 'modelo/imagen/048-tower.svg' %}" width="45px" alt="">
-                </button>
+            <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
+                href="">PC</button>
+            <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
+                href="">Switch</button>
 
-                <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
-                    href="#">PS4</button>
+            <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr " href="#">
+                <img class="imagenm" src="{% static 'modelo/imagen/048-tower.svg' %}" width="45px" alt="">
+            </button>
 
-                <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
-                    href="#">Xbox</button>
+            <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
+                href="#">PS4</button>
+
+            <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
+                href="#">Xbox</button>
+        </div>
+    </nav>
+</div>
+
+
+<!-- Elementos filtrados -->
+
+
+<div class="container">
+    <div class="row justify-content-around m-2">
+        <!--for para la vista de los juegos-->
+        {% for i in juego %}
+        <div class="i filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
+            <div class="Fcarta">
+                <img src="{% static 'modelo/imagen/juegos/' %}{{i.j_port}}" class="i-im icarta img-fluid " alt="">
+                <h5 class="i-nom">{{i.j_nom}}</h5>
+                <p class="parrafo_carta">{{i.j_desc}}</p>
+                <p class="i-pre parrafo_carta">${{i.j_price}}</p>
+                <button class="btn btn-dark mb-2 carr">AÑADIR AL CARRITO</button>
             </div>
-        </nav>
+        </div>
+        {% endfor %}
     </div>
 
 
-    <!-- Elementos filtrados -->
 
 
-    <div class="container">
-        <div class="row justify-content-around m-2">
 
-<!--for para la vista de los juegos-->
-            {% for i in juego %}
-            <div class="i filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
-                <div class="Fcarta">
-                    <img src="{% static 'modelo/imagen/juegos/' %}{{i.j_port}}" class="i-im icarta img-fluid " alt="">
-                    <h5 class="i-nom">{{i.j_nom}}</h5>
-                    <p class="parrafo_carta">{{i.j_desc}}</p>
-                    <p class="i-pre parrafo_carta">${{i.j_price}}</p>
-                    <button class="btn btn-dark mb-2 carr">AÑADIR AL CARRITO</button>
+    <div class="divcarro shopping-cart-items shoppingCartItemsContainer"></div>
+
+    <!--JS de los filtros-->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="shopping-cart-total d-flex align-items-center">
+                <p class="mb-0">Total</p>
+                <p class="ml-4 mb-0 totalCompra">0€</p>
+                <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-delay="2000">
+                    <div class="toast-header">
+                        <span>✅</span>
+                        <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body text-white">
+                        Se aumentó correctamente la cantidad
+                    </div>
                 </div>
+                <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                    data-target="#comprarModal">Comprar</button>
             </div>
-            {% endfor %}
         </div>
     </div>
-    <div class="divcarro"></div>
-    <!--JS de los filtros-->
-    <script>
-        filterSelection("all")
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("filterDiv");
-            if (c == "all") c = "";
-            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-            for (i = 0; i < x.length; i++) {
-                w3RemoveClass(x[i], "show");
-                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+
+
+</div>
+
+<
+
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
             }
         }
+    }
 
-        // Show filtered elements
-        function w3AddClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) == -1) {
-                    element.className += " " + arr2[i];
-                }
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
             }
         }
+        element.className = arr1.join(" ");
+    }
 
-        // Hide elements that are not selected
-        function w3RemoveClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                while (arr1.indexOf(arr2[i]) > -1) {
-                    arr1.splice(arr1.indexOf(arr2[i]), 1);
-                }
-            }
-            element.className = arr1.join(" ");
-        }
-
-        // Add active class to the current control button (highlight it)
-        var btnContainer = document.getElementById("myBtnContainer");
-        var btns = btnContainer.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
-    </script>
-    <!--Fin del JS de los filtros-->
+    // Add active class to the current control button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+<!--Fin del JS de los filtros-->
 
 
-    {% endblock main %}
+{% endblock main %}

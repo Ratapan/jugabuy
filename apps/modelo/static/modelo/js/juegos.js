@@ -18,7 +18,6 @@ insterAlCarro(itemTitle, itemPrice, itemImage);
 
 function insterAlCarro(itemTitle, itemPrice, itemImage) {
     const fila = document.createElement('div');
-
     const contenidoDiv = `
     <div class="row shoppingCartItem">
         <div class="col-6">
@@ -45,4 +44,9 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     fila.innerHTML = contenidoDiv;
     divcarro.append(fila)
 }
+function actualizarTotal(){
+    let total = 0;
+    const compraTotal = document.querySelector('.totalCompra');
+    console.log("actualizarTotal -> compraTotal", compraTotal);
 
+};
