@@ -27,7 +27,7 @@ class Rol(models.Model):
 class perfil(models.Model):
     nom_user = models.CharField(max_length=20, null=True, blank=True,verbose_name="username")
     us_id    = models.AutoField(primary_key=True, null=False, blank=False)
-    us_rut   = models.IntegerField( null=False, blank=False, verbose_name="Rut")
+    us_rut   = models.CharField(max_length=9 ,null=False, blank=False, verbose_name="Rut")
     #us_mail  = models.EmailField(null=False, verbose_name="Mail")
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
     us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Apellido")
