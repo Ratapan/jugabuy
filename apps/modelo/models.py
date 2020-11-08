@@ -11,7 +11,7 @@ class Region(models.Model):
         return self.desc_reg
 
 class Ciudad(models.Model):
-    id_ciu   = models.AutoField( primary_key=True, null=False, blank=False)
+    id_ciud   = models.AutoField( primary_key=True, null=False, blank=False)
     desc_ciu = models.CharField(max_length=40, null=False, blank=False)
     id_reg   = models.ForeignKey(Region,null=False,blank=False,on_delete =models.DO_NOTHING)
     def __str__(self):
