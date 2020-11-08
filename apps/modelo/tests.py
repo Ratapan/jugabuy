@@ -1,7 +1,7 @@
 from django.test import TestCase
-from apps.modelo.models import Ciudad, Region, perfil
 
 # Create your tests here.
+<<<<<<< Updated upstream
 
 
 class RegistroTestCase(TestCase):
@@ -38,3 +38,5 @@ class RegistroTestCase(TestCase):
 #UN test que pruebe los registros y la otra si se realizo de forma correcta 
 #intruccion para probar
 #python manage.py test
+=======
+>>>>>>> Stashed changes
