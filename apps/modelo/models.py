@@ -90,12 +90,12 @@ class Detalle(models.Model):
 
 class Compra(models.Model):
     com_id    = models.AutoField(primary_key=True, null=False, blank=False)
-    com_cod   = models.IntegerField(null=False, blank=False)
     com_fe    = models.DateField(null=False, blank=False)
     com_total = models.IntegerField(null=False, blank=False)
     us_rut    = models.IntegerField(null=False, blank=False)
     us_id     = models.ForeignKey(perfil, null=False, blank=False, on_delete= models.DO_NOTHING)
     j_id      = models.ForeignKey(Juego, null=True, blank=False, on_delete= models.DO_NOTHING)
+    j_plt    = models.CharField(max_length=10, null=True, blank=False, verbose_name="Plataforma")
     j_port    = models.CharField(max_length=10, null=True, blank=False, verbose_name="Nombre de portada")
     nom_user  = models.CharField(max_length=20, null=True, blank=False, verbose_name="username")
     def __str__(self):
