@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{% static 'modelo/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'modelo/css/style.css'%}">
     <link rel="stylesheet" href="{% static 'modelo/css/Style_juegos.css'%}">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </head>
 
@@ -33,14 +34,14 @@
                         <img src="{% static 'modelo/imagen/Group 1 (1).png'%}" alt=""
                             class="navbar-nav"></a>
                     <li class="nav-item ">
-                        <a class="nav-link " href="{%  url 'juego'%}">Juegos</a>
+                        <a class="nav-link " href="{%  url 'juego' %}">Juegos</a>
                     </li>
                     <li class="nav-item  ">
                         <a class="nav-link" href="{%  url 'novedades' %}">Novedades</a>
                     </li>
                     {%  if request.user.is_authenticated  %}
                     <li class="nav-item  ">
-                            <a class="nav-link" href="{%  url 'perfil'%}username={{user.username}}">Perfil</a>
+                            <a class="nav-link" href="{% url 'datospersonales' %}">Perfil</a>
                         </li>
                     {%  endif  %}
                 </ul>
@@ -58,7 +59,7 @@
             </div>
             <!-- Carrito -->
             <div class="mr-2">
-                <a class="navbar-brand " href="{% url 'Carrito' %}"><i class="fas fa-shopping-cart text-white"
+                <a class="navbar-brand " href="{% url 'carrito' %}"><i class="fas fa-shopping-cart text-white"
                         type="button"></i></i></a>
             </div>
             <!-- Usuario -->
@@ -105,7 +106,7 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Soy un robot</label>
                         </div>
-                        <a href="{%  url 'perfil'%}" type="submit" class="btn btn-dark">Entrar</a>
+                        <a href="{% url 'datospersonales' %}" type="submit" class="btn btn-dark">Entrar</a>
                         <div>
                             <a class=" btn btn-dark mt-4" type="button"  href="{% url 'cuenta' %}">Crear Cuenta</a>
                         </div>
@@ -184,6 +185,9 @@
         crossorigin="anonymous"></script>
     <script src="{% static 'modelo/js/bootstrap.min.js'%}"></script>
     <script src="https://kit.fontawesome.com/1dbd616d3c.js" crossorigin="anonymous"></script>
+
+    <script src="{% static 'modelo/js/juegos.js'%}"></script>
+
 </body>
 
 </html>

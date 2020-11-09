@@ -8,11 +8,9 @@ li {
     list-style:none;
 }
 
-
-
 .db-social .jumbotron {
     margin: 0;
-    background: url(../../imagen/img_perfil/hog.png);
+    /*background: url(../../imagen/img_perfil/hog.png);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -25,6 +23,8 @@ li {
     border-radius: 10px 10px 800px 800px;
     
 }
+
+
 
 .container-fluid {
     padding: 30px 30px;

@@ -16,13 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from apps.modelo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.modelo.urls')),
-    path('crearcuenta/',views.Cuenta, name="cuenta"),
-    path('carrito/',views.Carrito, name="carrito"),
 
-    path('perfil/',views.Perfil, name="perfil"),
 ]
