@@ -1,0 +1,84 @@
+{%  extends 'modelo/plantilla_perfil.html' %}
+
+
+{% load static %}
+
+{% block imagenbanner %}
+
+    {% if fotos.foto_banner %}
+        <img src="{{fotos.foto_banner.url}}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% else %}
+        <img src="{% static 'modelo/imagen/img_perfil/banner-defecto.png'%}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% endif %}
+
+{% endblock imagenbanner %}
+
+
+{% block imagenPerfil %}
+
+    {% if fotos.foto_perfil %}
+        <img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
+    {% else %}
+        <img class="rounded-circle" 
+        src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
+    {% endif %}
+                      
+{% endblock imagenPerfil %}
+
+
+{% block content %}
+
+
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div>
+                    <br>
+                    <nav class="navbar navbar-light justify-content-center">
+                        <form class="form-inline">
+                            <p class="mr-sm-2 my-2 my-sm-0">Desde: </p>
+                            <input class="form-control mr-sm-2" type="date" aria-label="">
+                            <p class="mr-sm-2 my-2 my-sm-0">Hasta: </p>
+                            <input class="form-control mr-sm-2" type="date" aria-label="">
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        Nombre Juego
+                    </div>
+                    <div class="card-body">
+                        <div class="blockquote-footer fx">
+                            <p>Plataforma:</p>
+                        </div>
+                        <div class="blockquote-footer fx">
+                            <p>Fecha:</p>
+                        </div>
+                        <div class="blockquote-footer fx">
+                            <p>Monto:</p>
+                        </div>
+                        <div class="blockquote-footer fx">
+                            <p>Tipo de Facturación:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{{ block.super }}
+{%   endblock  %}

@@ -8,11 +8,9 @@ li {
     list-style:none;
 }
 
-
-
 .db-social .jumbotron {
     margin: 0;
-    background: url(../../imagen/img_perfil/hog.png);
+    /*background: url(../../imagen/img_perfil/hog.png);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -26,12 +24,18 @@ li {
     
 }
 
+
+
 .container-fluid {
     padding: 30px 30px;
 }
 
 .db-social .image-default img {
     width: 150px;
+    height: 150px;
+    max-height: 150px;
+    max-width: 150px;
+    display: block;
     position: absolute;
     top: -80px;
     left: 0;
@@ -39,6 +43,8 @@ li {
     margin: 0 auto;
     box-shadow: 0 0 0 6px rgba(255,255,255,1);
     z-index: 10;
+    object-fit: cover;
+    object-position: center center;
 }
 .db-social .infos {
     text-align: center;

@@ -1,0 +1,80 @@
+{%  extends 'modelo/plantilla_perfil.html' %}
+
+
+{% load static %}
+
+{% block imagenbanner %}
+
+    {% if fotos.foto_banner %}
+        <img src="{{fotos.foto_banner.url}}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% else %}
+        <img src="{% static 'modelo/imagen/img_perfil/banner-defecto.png'%}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% endif %}
+
+{% endblock imagenbanner %}
+
+
+{% block imagenPerfil %}
+
+    {% if fotos.foto_perfil %}
+        <img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
+    {% else %}
+        <img class="rounded-circle" 
+        src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
+    {% endif %}
+                      
+{% endblock imagenPerfil %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div>
+                <br>
+                <nav class="navbar navbar-light justify-content-center">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%  for jue in entity  %}
+
+<div class="">
+    <div class="container mt-3 ">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2">
+                            <img src="{% static 'modelo/imagen/juegos/' %}{{  jue.j_port  }}" class="card-img" alt="...">
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                            <div class="card-body">
+                                <h5>{{  jue.j_id }}</h5>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%  endfor  %}
+<div>
+    {%  include 'modelo/paginador.html'  %}
+</div>
+
+
+
+{{ block.super }}
+{%   endblock  %}

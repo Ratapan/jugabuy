@@ -1,0 +1,144 @@
+{%  extends 'modelo/plantilla_perfil.html' %}
+
+
+{% load static %}
+
+
+{% block imagenbanner %}
+
+    {% if fotos.foto_banner %}
+        <img src="{{fotos.foto_banner.url}}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% else %}
+        <img src="{% static 'modelo/imagen/img_perfil/banner-defecto.png'%}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+
+    {% endif %}
+
+{% endblock imagenbanner %}
+
+
+{% block imagenPerfil %}
+
+    {% if fotos.foto_perfil %}
+        <img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
+    {% else %}
+        <img class="rounded-circle" 
+        src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
+    {% endif %}
+                      
+{% endblock imagenPerfil %}
+
+
+
+{% block content %}
+
+<!--Datos perso-->
+<div class="tab-content container " id="myTabContent">
+    <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row">
+            <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label for="Name">Nombre Completo </label>
+                        <div class="fx">
+                            <label type="input" class="form-control " id="Name" aria-describedby="text"></label>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="Rut">Nº Rut</label>
+                        <input type="text" class="form-control" id="Rut" placeholder="Ej: 181283262" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="Nacimiento">Fecha Nacimiento</label>
+                        <input type="date" class="form-control" id="Nacimiento" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">E-mail</label>
+                        <input type="email" class="form-control" id="Phone" placeholder="Ej: Heisenberg@xxx.com"
+                            disabled>
+                    </div>
+
+                </form>
+            </div>
+            <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="Ciudad">Direccion</label>
+                    <input type="text" class="form-control" id="Ciudad" aria-describedby="text"
+                        placeholder="Ej:Negra Arroyo 308" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="inputRegioon">Ciudad</label>
+                    <select id="inputciudad" class="form-control" disabled>
+                        <option selected>Seleccione...</option>
+                        <option>...</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputRegioon">Región</label>
+                    <select id="inputRegion" class="form-control" disabled>
+                        <option selected>Seleccione...</option>
+                        <option>...</option>
+                        <option>...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                </form>
+
+
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="nav justify-content-center">
+                <div>
+                    <imput class="btn btn-dark bt" type="button" value="activar" onclick="activarimput()">
+                        Modificar
+                        Datos</imput>
+                    <imput class="btn btn-dark bt" type="button">Guardar Cambios</imput>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<!--End Datos perso-->
+
+<!--Funciones-->
+<script type="text/JavaScript">
+        function activarimput(){
+            if (document.getElementById('Name').disabled == false)
+            {
+                document.getElementById('Name').disabled=true
+                document.getElementById('Rut').disabled=true
+                document.getElementById('Nacimiento').disabled=true
+                document.getElementById('Phone').disabled=true
+                document.getElementById('Ciudad').disabled=true
+                document.getElementById('inputciudad').disabled=true
+                document.getElementById('inputRegion').disabled=true
+            } else{
+                document.getElementById('Name').disabled=false
+                document.getElementById('Rut').disabled=false
+                document.getElementById('Nacimiento').disabled=false
+                document.getElementById('Phone').disabled=false
+                document.getElementById('Ciudad').disabled=false
+                document.getElementById('inputciudad').disabled=false
+                document.getElementById('inputRegion').disabled=false
+            }
+            
+        }
+    </script>
+
+
+
+{{ block.super }}
+{%   endblock  %}
