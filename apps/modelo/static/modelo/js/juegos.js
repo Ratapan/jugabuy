@@ -1,38 +1,41 @@
 const addBoton = document.querySelectorAll('.carr');
-    addBoton.forEach((clikButton) => {
+addBoton.forEach((clikButton) => {
     clikButton.addEventListener('click', Clicked);
 });
 
-const divcarro = document.querySelector('.divcarro');
+const divcarro = document.querySelector('.shoppingCartItemsContainer');
+
+const botonComprar = document.querySelector('.comprarButton');
+botonComprar.addEventListener('click', clickcomprar());
 
 function Clicked(event) {
 
-const button = event.target;
-const item = button.closest('.i');
+    const button = event.target;
+    const item = button.closest('.i');
 
-const itemTitle = item.querySelector('.i-nom').textContent;
-const itemPrice = item.querySelector('.i-pre').textContent;
-const itemImage = item.querySelector('.i-im').src;
-insterAlCarro(itemTitle, itemPrice, itemImage);
+    const itemTitle = item.querySelector('.i-nom').textContent;
+    const itemPrice = item.querySelector('.i-pre').textContent;
+    const itemImage = item.querySelector('.i-im').src;
+    insterAlCarro(itemTitle, itemPrice, itemImage);
 }
 
 function insterAlCarro(itemTitle, itemPrice, itemImage) {
-    const elementsTitle = divcarro.getElementsByClassName('.titu');
-    for (let i = 0; i < elementsTitle.length; i++) {
-        if (elementsTitle[i].innerText === itemTitle) {
-        
-            let elementQuantity = elementsTitle[i].parentElement.querySelector(
-            '.cantidadTitulos');
+    const elem = divcarro.getElementsByClassName('.shoppingCartItemTitle');
+    for (let i = 0; i < elem.length; i++) {
+        if (elem[i].innerText === itemTitle) {
+            let Quantity = elem[i].parentElement.parentElement.parentElement.querySelector(
+                '.cantidadTitulos');
 
-            elementQuantity.value++;
-
+            Quantity.value++;
+            actualizarTotal();
             return;
-        }}
+        }
+    }
 
 
     const fila = document.createElement('div');
     const contenidoDiv = `
-    <div class="row itemsDelCarrito">
+    <div class="row itemsDelCarrito pipi">
         <div class="col-6">
             <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                 <img src=${itemImage} class="shopping-cart-image">
@@ -55,17 +58,17 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     </div>`;
 
     fila.innerHTML = contenidoDiv;
-    divcarro.append(fila)
+    divcarro.append(fila);
 
-    fila.querySelector('.buttonDelete').addEventListener('click',deleteClick)
+    fila.querySelector('.buttonDelete').addEventListener('click', deleteClick);
 
-    fila.querySelector('.cantidadTitulos').addEventListener('change',cambioCantidad)
+    fila.querySelector('.cantidadTitulos').addEventListener('change', cambioCantidad);
 
     actualizarTotal();
 }
 
 
-function actualizarTotal(){
+function actualizarTotal() {
     let total = 0;
     const compraTotal = document.querySelector('.totalCompra');
     //console.log("actualizarTotal -> compraTotal", compraTotal)
@@ -73,20 +76,20 @@ function actualizarTotal(){
     const itemDelCarrito = document.querySelectorAll('.itemsDelCarrito');
     //console.log("actualizarTotal -> itemDelCarrito", itemDelCarrito)
 
-    itemDelCarrito.forEach((itemDelCarrito)=> {
+    itemDelCarrito.forEach((itemDelCarrito) => {
         const precioDelItem = itemDelCarrito.querySelector('.precioItem');
-        const precioSolo = Number(precioDelItem.textContent.replace('$',''));
+        const precioSolo = Number(precioDelItem.textContent.replace('$', ''));
         //console.log("actualizarTotal -> precioSolo", precioSolo)
         const cantidadDelItem = itemDelCarrito.querySelector('.cantidadTitulos');
         const soloCantidad = Number(cantidadDelItem.value);
         //console.log("actualizarTotal -> soloCantidad", soloCantidad)
-        total = total + precioSolo*soloCantidad;
+        total = total + precioSolo * soloCantidad;
     });
     compraTotal.innerHTML = `$${total.toFixed(2)}`;
 
 }
 
-function deleteClick(event){
+function deleteClick(event) {
 
     const delClick = event.target;
     delClick.closest('.itemsDelCarrito').remove();
@@ -95,12 +98,18 @@ function deleteClick(event){
 
 };
 
-function cambioCantidad(event){
+function cambioCantidad(event) {
 
     const input = event.target;
 
-    if (input.value <= 0){ input.value = 1;}
-    if (input.value >= 51){ input.value = 50;}
+    if (input.value <= 0) { input.value = 1; }
+    if (input.value >= 51) { input.value = 50; }
     actualizarTotal();
 
+};
+
+function clickcomprar() {
+
+    divcarro.innerHTML = ``;
+    actualizarTotal();
 };
