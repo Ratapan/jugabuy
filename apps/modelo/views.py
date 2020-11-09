@@ -84,6 +84,7 @@ def biblioteca(request, user):
 	
 	page = request.GET.get('page', 1)
 
+	fotos = fotoPerfil.objects.filter(nom_user= request.user.username).count()
 
 	try:
 		paginator = Paginator(juegos, 3)
@@ -91,18 +92,68 @@ def biblioteca(request, user):
 	except:
 		raise Http404
 
+		fotos = fotoPerfil.objects.filter(nom_user= request.user.username).count()
+
+	
+	if fotos > 0:
+		fotos = fotoPerfil.objects.get(nom_user= user)
+		print("+0")
+		print(fotos)
+	else:
+		fotos = fotoPerfil.objects.filter(nom_user= user)
+		print("nulo")
+		print(fotos)
+
 	data = {
 		'entity':juegos,
-		'paginator':paginator
+		'paginator':paginator,
+		'fotos':fotos
 	}
 
 	return render(request, 'modelo/biblioteca_perfil.html', data)
 
 def historialperfil(request):
-	return render(request, 'modelo/historial_perfil.html')
+
+	fotos = fotoPerfil.objects.filter(nom_user= request.user.username).count()
+
+	
+	if fotos > 0:
+		fotos = fotoPerfil.objects.get(nom_user= request.user.username)
+		print("+0")
+		print(fotos)
+	else:
+		fotos = fotoPerfil.objects.filter(nom_user= request.user.username)
+		print("nulo")
+		print(fotos)
+
+	data = {
+		'fotos':fotos
+	}
+
+
+	return render(request, 'modelo/historial_perfil.html', data)
 
 def monederoperfil(request):
-	return render(request, 'modelo/monedero_perfil.html')
+
+	fotos = fotoPerfil.objects.filter(nom_user= request.user.username).count()
+
+	
+	if fotos > 0:
+		fotos = fotoPerfil.objects.get(nom_user= request.user.username)
+		print("+0")
+		print(fotos)
+	else:
+		fotos = fotoPerfil.objects.filter(nom_user= request.user.username)
+		print("nulo")
+		print(fotos)
+
+	data = {
+		'fotos':fotos
+	}
+
+
+
+	return render(request, 'modelo/monedero_perfil.html', data)
 
 def formcargarfoto(request):
 	return render(request, 'modelo/Cambiar_foto.html')
