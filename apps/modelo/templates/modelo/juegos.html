@@ -13,6 +13,26 @@
 
 {% block main %}
 
+
+<div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>🐱‍🏍 Su pedido fue ingresado, vea su biblioteca 🐱‍👤</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Sub-menu de filtros-->
 <div class=" espacio2 container p-3 mb-2  bg-dark text-white redondear_menu ">
     <nav class="nav navbar-nav navbar-center text-white " style="align-content: center;">
