@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
-from apps.modelo.models import Juego, perfil,Region,Ciudad
+from django.shortcuts import render, redirect, get_object_or_404
+from apps.modelo.models import Juego, perfil,Region,Ciudad, Compra
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.core.paginator import Paginator
+from django.http import Http404
 
 from django.contrib import messages
 # Create your views here.
@@ -24,11 +26,7 @@ def Carrito(request):
 def Login(request):
     return render(request, 'modelo/login.html')
 
-def Perfil(request):
-    per = perfil.objects.get(nom_user= request.user.username)
-    usu = request.user.username
 
-    return render(request, 'modelo/perfil.html', {'per':usu})
 
 def Cuenta(request):
     return render(request, 'modelo/crearcuenta.html')
@@ -60,7 +58,42 @@ def registerPage(request):
 
 		return render(request, 'modelo/register.html', context)
 
+#PERFIL
+def Perfil(request):
+    per = perfil.objects.get(nom_user= request.user.username)
+    usu = request.user.username
+	
 
+    return render(request, 'modelo/datos_perfil.html', {'per':usu})
+
+def biblioteca(request, user):
+
+	juegos = Compra.objects.filter(nom_user=user)
+	
+	page = request.GET.get('page', 1)
+
+
+	try:
+		paginator = Paginator(juegos, 3)
+		juegos = paginator.page(page)
+	except:
+		raise Http404
+
+	data = {
+		'entity':juegos,
+		'paginator':paginator
+	}
+
+	return render(request, 'modelo/biblioteca_perfil.html', data)
+
+def historialperfil(request):
+	return render(request, 'modelo/historial_perfil.html')
+
+def monederoperfil(request):
+	return render(request, 'modelo/monedero_perfil.html')
+
+
+#ENDPERFIL
 
 
 
