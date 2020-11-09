@@ -43,6 +43,13 @@ class perfil(models.Model):
         return (f'{self.us_nom} {self.us_apes}')  
 #un escalon de bajo de usuario
 
+class fotoPerfil(models.Model):
+    nom_user = models.CharField(max_length=20, null=True, blank=True,verbose_name="username")
+    foto_perfil = models.ImageField(upload_to='uploads')
+    foto_banner = models.ImageField(upload_to='uploads')
+
+
+
 class Transacciones(models.Model):
     tr_id       = models.AutoField(primary_key=True, null=False, blank=False)
     tr_mon      = models.IntegerField( null=False, blank=False)
@@ -82,12 +89,17 @@ class Detalle(models.Model):
     jueg_id    = models.ForeignKey(Juego, null=False, blank=False, on_delete= models.DO_NOTHING)
 
 class Compra(models.Model):
-    com_id    = models.AutoField( primary_key=True, null=False, blank=False)
+    com_id    = models.AutoField(primary_key=True, null=False, blank=False)
     com_cod   = models.IntegerField(null=False, blank=False)
     com_fe    = models.DateField(null=False, blank=False)
     com_total = models.IntegerField(null=False, blank=False)
     us_rut    = models.IntegerField(null=False, blank=False)
     us_id     = models.ForeignKey(perfil, null=False, blank=False, on_delete= models.DO_NOTHING)
+    j_id      = models.ForeignKey(Juego, null=True, blank=False, on_delete= models.DO_NOTHING)
+    j_port    = models.CharField(max_length=10, null=True, blank=False, verbose_name="Nombre de portada")
+    nom_user  = models.CharField(max_length=20, null=True, blank=False, verbose_name="username")
+    def __str__(self):
+        return (f'{self.j_id}')
 
 class DetalleCompra(models.Model):
     detcom_id     = models.AutoField(primary_key=True, null=False, blank=False)

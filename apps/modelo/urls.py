@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView, LogoutView
+
 # Primera urls para vistas con el alias
 
 urlpatterns = [
@@ -11,7 +14,7 @@ urlpatterns = [
     path('carrito', views.Carrito, name="carrito"),
     path('Juegos', views.Juegos, name="juego"),
 
-    path('perfil', views.Perfil, name="perfil"),
+   # path('perfil', views.Perfil, name="perfil"),
     path('novedades', views.Novedades, name="novedades"),
     path('login', LoginView.as_view(
         template_name='modelo/login.html'), name="login"),
@@ -43,4 +46,20 @@ urlpatterns = [
              template_name='modelo/password_reset_complete.html'
          ),
          name='password_reset_complete'),
+
+    #PERFIL
+    path('perfil/datos-personales/', views.Perfil, name="datospersonales"),
+    path('perfil/biblioteca/<user>/', views.biblioteca, name="biblioteca"),
+    path('perfil/historial/', views.historialperfil, name="historialperfil"),
+    path('perfil/mondero/', views.monederoperfil, name="monederoperfil"),
+    path('perfil/actualizar-fotos', views.formcargarfoto, name="cargarfoto"),
+    path('perfil/cargarfoto/<user>/', views.cargarfoto, name="cargarfoto"),
+    #ENDPERFIL
+
+
+
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
