@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from apps.modelo.models import Juego, perfil,Region,Ciudad, Compra
+from apps.modelo.models import Juego, perfil,Region,Ciudad, Compra, fotoPerfil
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.paginator import Paginator
 from django.http import Http404
+from django.contrib import messages
 
 from django.contrib import messages
 # Create your views here.
@@ -59,12 +60,23 @@ def registerPage(request):
 		return render(request, 'modelo/register.html', context)
 
 #PERFIL
-def Perfil(request):
-    per = perfil.objects.get(nom_user= request.user.username)
-    usu = request.user.username
-	
 
-    return render(request, 'modelo/datos_perfil.html', {'per':usu})
+def Perfil(request):
+	
+	fotos = fotoPerfil.objects.filter(nom_user= request.user.username).count()
+
+	
+	if fotos > 0:
+		fotos = fotoPerfil.objects.get(nom_user= request.user.username)
+		print("+0")
+		print(fotos)
+	else:
+		fotos = fotoPerfil.objects.filter(nom_user= request.user.username)
+		print("nulo")
+		print(fotos)
+
+	
+	return render(request, 'modelo/datos_perfil.html', {'fotos':fotos})
 
 def biblioteca(request, user):
 
@@ -92,6 +104,22 @@ def historialperfil(request):
 def monederoperfil(request):
 	return render(request, 'modelo/monedero_perfil.html')
 
+def formcargarfoto(request):
+	return render(request, 'modelo/Cambiar_foto.html')
+
+def cargarfoto(request, user):
+	username = user
+	fot_perfil = request.FILES.get('Foto_perfil')
+	fot_banner = request.FILES.get('Foto_banner')
+	
+	try:
+		fotoPerfil.objects.create(nom_user= username, foto_perfil=fot_perfil, foto_banner=fot_banner)
+
+		messages.success(request, 'Fotos Actualizadas Correctamente')
+	except:
+		messages.error(request, 'Error Al actualizar las Fotos')
+
+	return redirect('cargarfoto') 
 
 #ENDPERFIL
 

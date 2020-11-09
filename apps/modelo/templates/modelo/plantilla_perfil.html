@@ -3,8 +3,6 @@
 
 {% load static %}
 
-
-
 {% block nom %}
 
 <link rel="stylesheet" href="{% static 'modelo/css/css_perfil/perfil.css'%}">
@@ -20,21 +18,28 @@
 
 <!--Banner y Foto de perfil-->
 <div class="container db-social separacion">
-    <div class="jumbotron jumbotron-fluid">
 
+    <div style="border-radius: 20px;">
+        <div class="container text-center img-fluid " style="max-height: 300px;">
+            {% block imagenbanner %}
+
+            {% endblock imagenbanner %}
+        </div>
     </div>
+
     <div class="container-fluid ">
         <div class="row justify-content-center">
             <div class="col-xl-12">
                 <div class="col-xl-12 col-md-12 d-flex justify-content-center">
                     <div class="image-default">
-                        <img class="rounded-circle" src="{% static 'modelo/imagen/img_perfil/WW.png'%}" alt="...">
+                        {% block imagenPerfil %}
+
+                        {% endblock imagenPerfil %}
                     </div>
                     <div class="infos">
                         <h2>{{user.username}}</h2>
                         <div>
-                            <button class="btn btn-dark ">Cambiar imagen de perfil</button>
-                            <button class="btn btn-dark ">Cambiar imagen de banner</button>
+                            <a class="btn btn-dark " href="{%  url 'cargarfoto'  %}">Cambiar imagenes de perfil</a>
                         </div>
                     </div>
                 </div>
@@ -45,8 +50,7 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <!--End Banner y Foto de perfil.-->
 
 <!--Nav-opciones-->
@@ -55,12 +59,12 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="">
-                    <a class="nav-link text-secondary" id="home-tab" href="{% url 'datospersonales' %}"  role="tab"
+                    <a class="nav-link text-secondary" id="home-tab" href="{% url 'datospersonales' %}" role="tab"
                         aria-controls="home" aria-selected="false">Datos Personales</a>
                 </li>
                 <li class="">
-                    <a class="nav-link text-secondary" id="profile-tab" href="{% url 'biblioteca' user.username %}" role="tab"
-                        aria-controls="profile" aria-selected="false">Biblioteca de juegos</a>
+                    <a class="nav-link text-secondary" id="profile-tab" href="{% url 'biblioteca' user.username %}"
+                        role="tab" aria-controls="profile" aria-selected="false">Biblioteca de juegos</a>
 
                 </li>
                 <li class="">
@@ -76,10 +80,11 @@
     </div>
 </div>
 
+<img src="" alt="{{fotoPerfil.foto_perfil}}">
+
 {% block content %}
 
 
 {% endblock %}
 
 {% endblock %}
-

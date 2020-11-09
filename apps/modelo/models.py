@@ -43,6 +43,13 @@ class perfil(models.Model):
         return (f'{self.us_nom} {self.us_apes}')  
 #un escalon de bajo de usuario
 
+class fotoPerfil(models.Model):
+    nom_user = models.CharField(max_length=20, null=True, blank=True,verbose_name="username")
+    foto_perfil = models.ImageField(upload_to='uploads')
+    foto_banner = models.ImageField(upload_to='uploads')
+
+
+
 class Transacciones(models.Model):
     tr_id       = models.AutoField(primary_key=True, null=False, blank=False)
     tr_mon      = models.IntegerField( null=False, blank=False)
