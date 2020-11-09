@@ -11,7 +11,7 @@ urlpatterns = [
     path('carrito', views.Carrito, name="carrito"),
     path('Juegos', views.Juegos, name="juego"),
 
-    path('perfil', views.Perfil, name="perfil"),
+   # path('perfil', views.Perfil, name="perfil"),
     path('novedades', views.Novedades, name="novedades"),
     path('login', LoginView.as_view(
         template_name='modelo/login.html'), name="login"),
@@ -43,4 +43,14 @@ urlpatterns = [
              template_name='modelo/password_reset_complete.html'
          ),
          name='password_reset_complete'),
+
+    #PERFIL
+    path('perfil/datos-personales/', views.Perfil, name="datospersonales"),
+    path('perfil/biblioteca/<user>/', views.biblioteca, name="biblioteca"),
+    path('perfil/historial/', views.historialperfil, name="historialperfil"),
+    path('perfil/mondero/', views.monederoperfil, name="monederoperfil"),
+    #ENDPERFIL
+
+
+
 ]
