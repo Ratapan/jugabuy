@@ -1,0 +1,49 @@
+{%  extends 'modelo/plantilla.html' %}
+
+
+{% load static %}
+
+{% block nom %}
+<title>Iniciar_Sesion JugaBuy</title>
+{% endblock nom %}
+
+{% block main %}
+<!-- Iniciar Sesion-->
+<div class="container-fluid espacio">
+    <div class="container col-md-9 shadow p-4 mb-4">
+        <h5 class="title">Actualizar Foto de Perfil y Banner</h5>
+
+        {%  if messages  %}
+        
+            {%  for x in messages  %}
+                <p>{{ x }}</p>
+            {%  endfor  %}
+        
+        {%  endif  %}
+
+        <div class="modal-footer d-flex justify-content-center">
+            
+            <form class=" d-block" action="{%  url 'cargarfoto' user.username  %}" method="post" enctype="multipart/form-data">
+                {%  csrf_token  %}
+                <div class="form-group">
+                    <label for="">Foto Perfil</label>
+                    <input type="file" class="form-control" name="Foto_perfil" accept="image/*" required>
+                    
+
+                </div>
+                <div class="form-group">
+                    <label for="">Foto Banner</label>
+                    <input type="file" class="form-control" name="Foto_banner" accept="image/*" required>
+                    
+                    <button type="submit" class="btn btn-dark text-light">Actualizar</button>
+                </div>
+
+                
+      
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock main %}
