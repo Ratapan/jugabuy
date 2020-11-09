@@ -20,8 +20,7 @@
 {% block imagenPerfil %}
 
     {% if fotos.foto_perfil %}
-        <img class="rounded-circle" 
-        src="{{fotos.foto_perfil.url}}" alt="...">
+        <img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
     {% else %}
         <img class="rounded-circle" 
         src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
