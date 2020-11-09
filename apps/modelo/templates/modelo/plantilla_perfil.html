@@ -1,0 +1,85 @@
+{%  extends 'modelo/plantilla.html' %}
+
+
+{% load static %}
+
+
+
+{% block nom %}
+
+<link rel="stylesheet" href="{% static 'modelo/css/css_perfil/perfil.css'%}">
+
+
+<title>Perfil de Usuario</title>
+
+{% endblock nom %}
+
+
+{% block main %}
+
+
+<!--Banner y Foto de perfil-->
+<div class="container db-social separacion">
+    <div class="jumbotron jumbotron-fluid">
+
+    </div>
+    <div class="container-fluid ">
+        <div class="row justify-content-center">
+            <div class="col-xl-12">
+                <div class="col-xl-12 col-md-12 d-flex justify-content-center">
+                    <div class="image-default">
+                        <img class="rounded-circle" src="{% static 'modelo/imagen/img_perfil/WW.png'%}" alt="...">
+                    </div>
+                    <div class="infos">
+                        <h2>{{user.username}}</h2>
+                        <div>
+                            <button class="btn btn-dark ">Cambiar imagen de perfil</button>
+                            <button class="btn btn-dark ">Cambiar imagen de banner</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--End Banner y Foto de perfil.-->
+
+<!--Nav-opciones-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <li class="">
+                    <a class="nav-link text-secondary" id="home-tab" href="{% url 'datospersonales' %}"  role="tab"
+                        aria-controls="home" aria-selected="false">Datos Personales</a>
+                </li>
+                <li class="">
+                    <a class="nav-link text-secondary" id="profile-tab" href="{% url 'biblioteca' user.username %}" role="tab"
+                        aria-controls="profile" aria-selected="false">Biblioteca de juegos</a>
+
+                </li>
+                <li class="">
+                    <a class="nav-link text-secondary" id="contact-tab" href="{% url 'historialperfil' %}" role="tab"
+                        aria-controls="contact" aria-selected="false">Historial de Compra</a>
+                </li>
+                <li class="">
+                    <a class="nav-link text-secondary" id="contact-tab" href="{% url 'monederoperfil' %}" role="tab"
+                        aria-controls="contact" aria-selected="false">Seguridad y Monedero</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block content %}
+
+
+{% endblock %}
+
+{% endblock %}
+
