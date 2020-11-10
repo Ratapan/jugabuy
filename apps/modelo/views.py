@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.modelo.models import Juego, perfil,Region,Ciudad, Compra, fotoPerfil
 from django.contrib.auth.models import User
@@ -17,6 +18,24 @@ def Juegos(request):
     juegos = Juego.objects.all()
     return render(request, 'modelo/juegos.html',{'juego':juegos})
     
+def ComprarJuego(request):
+
+
+	return render(request,'modelo/juegocomprado.html')
+
+#	juegos = Juego.objects.all()
+#	com_jue=[]
+#	for i in juegos:
+#		nombreDJuego = i.j_nom
+#		try:
+#			nom = request.POST[f'"{nombreDJuego}"']
+#			com_jue.append(nom)
+#			pass
+#		except:
+#			pass 
+#	jue = (f'8888888888888888888 {com_jue} 88888888888888888888888888')
+#	print(f'{jue}')
+
 def Novedades(request):
     return render(request, 'modelo/novedades.html')
 
@@ -150,9 +169,6 @@ def monederoperfil(request):
 	data = {
 		'fotos':fotos
 	}
-
-
-
 	return render(request, 'modelo/monedero_perfil.html', data)
 
 def formcargarfoto(request):
