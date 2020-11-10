@@ -15,7 +15,7 @@ class Ciudad(models.Model):
     desc_ciu = models.CharField(max_length=40, null=False, blank=False)
     id_reg   = models.ForeignKey(Region,null=False,blank=False,on_delete =models.DO_NOTHING)
     def __str__(self):
-        return(f'{self.id_reg}, {self.desc_ciu}')    
+        return self.desc_ciu   
 
 class Rol(models.Model):
     rol_id   = models.AutoField( primary_key=True, null=False, blank=False)
@@ -39,6 +39,7 @@ class perfil(models.Model):
     #us_sald  = models.IntegerField(null=False, blank=False, verbose_name="Saldo")
     #id_rol   = models.ForeignKey(Rol,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Rol")
     id_ciud  = models.ForeignKey(Ciudad,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Ciudad")
+    id_reg = models.ForeignKey(Region,null=True,blank=False,on_delete =models.DO_NOTHING, verbose_name="Región")
     def __str__(self):
         return (f'{self.us_nom} {self.us_apes}')  
 #un escalon de bajo de usuario
