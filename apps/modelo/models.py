@@ -11,11 +11,11 @@ class Region(models.Model):
         return self.desc_reg
 
 class Ciudad(models.Model):
-    id_ciu   = models.AutoField( primary_key=True, null=False, blank=False)
+    id_ciud   = models.AutoField( primary_key=True, null=False, blank=False)
     desc_ciu = models.CharField(max_length=40, null=False, blank=False)
     id_reg   = models.ForeignKey(Region,null=False,blank=False,on_delete =models.DO_NOTHING)
     def __str__(self):
-        return(f'{self.id_reg}, {self.desc_ciu}')    
+        return self.desc_ciu   
 
 class Rol(models.Model):
     rol_id   = models.AutoField( primary_key=True, null=False, blank=False)
@@ -27,7 +27,7 @@ class Rol(models.Model):
 class perfil(models.Model):
     nom_user = models.CharField(max_length=20, null=True, blank=True,verbose_name="username")
     us_id    = models.AutoField(primary_key=True, null=False, blank=False)
-    us_rut   = models.IntegerField( null=False, blank=False, verbose_name="Rut")
+    us_rut   = models.CharField(max_length=9, null=False, blank=False, verbose_name="Rut")
     #us_mail  = models.EmailField(null=False, verbose_name="Mail")
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
     us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Apellido")
@@ -39,6 +39,7 @@ class perfil(models.Model):
     #us_sald  = models.IntegerField(null=False, blank=False, verbose_name="Saldo")
     #id_rol   = models.ForeignKey(Rol,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Rol")
     id_ciud  = models.ForeignKey(Ciudad,null=False,blank=False,on_delete =models.DO_NOTHING, verbose_name="Ciudad")
+    id_reg = models.ForeignKey(Region,null=True,blank=False,on_delete =models.DO_NOTHING, verbose_name="Región")
     def __str__(self):
         return (f'{self.us_nom} {self.us_apes}')  
 #un escalon de bajo de usuario

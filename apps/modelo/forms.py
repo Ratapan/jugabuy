@@ -21,8 +21,8 @@ class PerfilForm(ModelForm):
         "us_dir",
         #"us_sald",
         #"id_rol",
-        "id_ciud"
-        
+        "id_ciud",
+        "id_reg"
     ]
 
 class comprasForm(ModelForm):
