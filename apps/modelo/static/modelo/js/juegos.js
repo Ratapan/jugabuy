@@ -25,7 +25,6 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
         if (elem[i].innerText === itemTitle) {
             let Quantity = elem[i].parentElement.parentElement.parentElement.querySelector(
                 '.cantidadTitulos');
-
             Quantity.value++;
             actualizarTotal();
             return;
@@ -36,17 +35,23 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     const fila = document.createElement('div');
     const contenidoDiv = `
     <div class="row itemsDelCarrito pipi">
-        <div class="col-6">
-            <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <img src=${itemImage} class="shopping-cart-image">
-                <h6 class="shopping-cart-item-title shoppingCartItemTitle titu text-truncate ml-3 mb-0">${itemTitle}</h6>
+
+    <div class="col-6">
+            <div class="form-row shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+                
+            <img src=${itemImage} class="shopping-cart-image">
+                
+            <h6 class="form-group shopping-cart-item-title shoppingCartItemTitle parrafo_carta titu  ml-3 mb-0">${itemTitle}</h6>
+            
             </div>
         </div>
+
         <div class="col-2">
             <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <p class="item-price mb-0 precioItem">${itemPrice}</p>
+                <p  class=" col-md-12 item-price mb-0 precioItem">${itemPrice}</p>
             </div>
         </div>
+
         <div class="col-4">
             <div
                 class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
@@ -55,7 +60,8 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
                 <button class="btn btn-danger buttonDelete" type="button">X</button>
             </div>
         </div>
-    </div>`;
+    </div>`
+    ;
 
     fila.innerHTML = contenidoDiv;
     divcarro.append(fila);
@@ -65,6 +71,12 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     fila.querySelector('.cantidadTitulos').addEventListener('change', cambioCantidad);
 
     actualizarTotal();
+
+    
+
+    let at = nodeToString(divcarro);
+    var bo = 'superDiv';
+    actualizarlocal(bo,at);
 }
 
 
@@ -85,6 +97,11 @@ function actualizarTotal() {
         //console.log("actualizarTotal -> soloCantidad", soloCantidad)
         total = total + precioSolo * soloCantidad;
     });
+
+    let tt = total;
+    var oo = 'preciocompra';
+    actualizarlocal(oo,tt);
+
     compraTotal.innerHTML = `$${total.toFixed(2)}`;
 
 }
@@ -113,3 +130,30 @@ function clickcomprar() {
     divcarro.innerHTML = ``;
     actualizarTotal();
 };
+
+
+
+
+
+function actualizarlocal(oo,tt){
+    
+    localStorage.setItem(oo, tt);
+};
+
+function  idpre(){
+    let superDiv = localStorage.getItem("superDiv");
+    let prec = localStorage.getItem("preciocompra");
+
+    document.getElementById("owo").innerHTML = `${superDiv}`;
+    document.getElementById("precioid").innerHTML = ` $${prec} `;
+
+    }
+
+
+function nodeToString ( node ) {
+    var tmpNode = document.createElement( "div" );
+    tmpNode.appendChild( node.cloneNode( true ) );
+    var str = tmpNode.innerHTML;
+    tmpNode = node = null; // prevent memory leaks in IE
+    return str;
+    }

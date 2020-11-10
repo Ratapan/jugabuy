@@ -79,7 +79,7 @@ class Juego(models.Model):
     j_status = models.IntegerField(null=False, blank=False, verbose_name="Status")
     j_stock  = models.IntegerField(null=False, blank=False, verbose_name="Stock")
     def __str__(self):
-        return (f'{self.j_nom}   |   {self.j_plt}') 
+        return self.j_nom
 
 class Detalle(models.Model):
     det_id     = models.AutoField( primary_key=True, null=False, blank=False)
