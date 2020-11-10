@@ -41,8 +41,7 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
                 
             <img src=${itemImage} class="shopping-cart-image">
                 
-                
-                <h6 class="form-group shopping-cart-item-title shoppingCartItemTitle titu text-truncate ml-3 mb-0">${itemTitle}</h6>
+            <h6 class="form-group shopping-cart-item-title shoppingCartItemTitle parrafo_carta titu  ml-3 mb-0">${itemTitle}</h6>
             
             </div>
         </div>
@@ -72,6 +71,12 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     fila.querySelector('.cantidadTitulos').addEventListener('change', cambioCantidad);
 
     actualizarTotal();
+
+    
+
+    let at = nodeToString(divcarro);
+    var bo = 'superDiv';
+    actualizarlocal(bo,at);
 }
 
 
@@ -94,8 +99,8 @@ function actualizarTotal() {
     });
 
     let tt = total;
-    
-    actualizarlocal(tt);
+    var oo = 'preciocompra';
+    actualizarlocal(oo,tt);
 
     compraTotal.innerHTML = `$${total.toFixed(2)}`;
 
@@ -130,15 +135,25 @@ function clickcomprar() {
 
 
 
-function actualizarlocal(tt){
+function actualizarlocal(oo,tt){
     
-    localStorage.setItem("preciocompra", tt);
+    localStorage.setItem(oo, tt);
 };
 
 function  idpre(){
-
+    let superDiv = localStorage.getItem("superDiv");
     let prec = localStorage.getItem("preciocompra");
 
+    document.getElementById("owo").innerHTML = `${superDiv}`;
     document.getElementById("precioid").innerHTML = ` $${prec} `;
 
+    }
+
+
+function nodeToString ( node ) {
+    var tmpNode = document.createElement( "div" );
+    tmpNode.appendChild( node.cloneNode( true ) );
+    var str = tmpNode.innerHTML;
+    tmpNode = node = null; // prevent memory leaks in IE
+    return str;
     }
