@@ -55,6 +55,8 @@ urlpatterns = [
     path('perfil/mondero/', views.monederoperfil, name="monederoperfil"),
     path('perfil/actualizar-fotos', views.formcargarfoto, name="cargarfoto"),
     path('perfil/cargarfoto/<user>/', views.cargarfoto, name="cargarfoto"),
+    path('perfil/biblioteca/actualizar-datos', views.actualizardatos, name="actualizardatos"),
+    
     #ENDPERFIL
 
 

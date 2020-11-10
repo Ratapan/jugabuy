@@ -59,16 +59,14 @@
             </div>
             <!-- Carrito -->
             <div class="mr-2">
-
                 <button class="btn comprarButton" type="button" data-toggle="modal"data-target="#comprarModal">
                     <i class="fas fa-shopping-cart text-white" type="button"></i>
                 </button>
-
             </div>
             <!-- Usuario -->
             {%  if request.user.is_authenticated  %}
             <div>
-                    <a class="navbar-brand" href="{% url 'logout' %}"><i class="fas fa-user text-white " type="button" ></i></a>
+                    <a class="navbar-brand" href="{% url 'logout' %}"><i class="fas fa-door-open" type="button" ></i></a>
                 </div>
             {%  else  %}
             <div>
@@ -119,6 +117,7 @@
             </div>
         </div>
     </div>
+    
 
 
     {% block main %}

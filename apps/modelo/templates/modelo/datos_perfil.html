@@ -6,26 +6,26 @@
 
 {% block imagenbanner %}
 
-    {% if fotos.foto_banner %}
-        <img src="{{fotos.foto_banner.url}}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+{% if fotos.foto_banner %}
+<img src="{{fotos.foto_banner.url}}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
 
-    {% else %}
-        <img src="{% static 'modelo/imagen/img_perfil/banner-defecto.png'%}" style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
+{% else %}
+<img src="{% static 'modelo/imagen/img_perfil/banner-defecto.png'%}"
+    style="width: 100% ; border-radius: 20px 20px 900px 900px;" alt="">
 
-    {% endif %}
+{% endif %}
 
 {% endblock imagenbanner %}
 
 
 {% block imagenPerfil %}
 
-    {% if fotos.foto_perfil %}
-        <img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
-    {% else %}
-        <img class="rounded-circle" 
-        src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
-    {% endif %}
-                      
+{% if fotos.foto_perfil %}
+<img class="rounded-circle" src="{{fotos.foto_perfil.url}}" alt="...">
+{% else %}
+<img class="rounded-circle" src="{% static 'modelo/imagen/img_perfil/Snes-mando.png'%}" alt="...">
+{% endif %}
+
 {% endblock imagenPerfil %}
 
 
@@ -33,64 +33,94 @@
 {% block content %}
 
 <!--Datos perso-->
-<div class="tab-content container " id="myTabContent">
-    <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="home-tab">
-        <div class="row">
-            <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <form>
-                    <div class="form-group">
-                        <label for="Name">Nombre Completo </label>
-                        <div class="fx">
-                            <label type="input" class="form-control " id="Name" aria-describedby="text"></label>
 
-                        </div>
+<div class="container">
+    {%  if messages  %}
+
+    {%  for x in messages  %}
+    <p>{{ x }}</p>
+    {%  endfor  %}
+
+    {%  endif  %}
+    <form action="{%  url 'actualizardatos'  %}" method="post">
+        {%  csrf_token  %}
+        <div class="container-fluid d-flex ">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="Name">Nombre </label>
+                    <div class="fx">
+                        <input type="input" class="form-control " name="nombre" id="Name" aria-describedby="text"
+                            value="{{ datosuser.us_nom }}" disabled>
                     </div>
+                </div>
 
-
-
-                    <div class="form-group">
-                        <label for="Rut">Nº Rut</label>
-                        <input type="text" class="form-control" id="Rut" placeholder="Ej: 181283262" disabled>
+                <div class="form-group">
+                    <label for="Name">Apellido</label>
+                    <div class="fx">
+                        <input type="input" class="form-control " name="apellido" id="Lastname" aria-describedby="text"
+                            value="{{ datosuser.us_apes }}" disabled>
                     </div>
-                    <div class="form-group">
-                        <label for="Nacimiento">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" id="Nacimiento" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="Phone">E-mail</label>
-                        <input type="email" class="form-control" id="Phone" placeholder="Ej: Heisenberg@xxx.com"
-                            disabled>
-                    </div>
+                </div>
 
-                </form>
+                <div class="form-group">
+                    <label for="Name">Nombre Usuario</label>
+                    <div class="fx">
+                        <input type="input" class="form-control " name="usernme" id="user-name" aria-describedby="text"
+                            value="{{ datosuser.nom_user }}" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Rut">Nº Rut</label>
+                    <input type="text" class="form-control" name="rut" id="Rut" placeholder="Ej: 181283262"
+                        value="{{ datosuser.us_rut }}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Nacimiento">Fecha Nacimiento</label>
+                    <input type="text" class="form-control" id="Nacimiento" value="{{ datosuser.us_nac }}" disabled>
+                </div>
             </div>
-            <div class="container-fluid col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="Fono">Telefono</label>
+                    <input type="text" class="form-control" name="fono" id="Fono" value="{{ datosuser.us_tel }}"
+                        disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Phone">E-mail</label>
+                    <input type="email" class="form-control" name="email" id="Phone"
+                        placeholder="Ej: Heisenberg@xxx.com" value="{{ user.email }}" disabled>
+                </div>
+
                 <div class="form-group">
                     <label for="Ciudad">Direccion</label>
-                    <input type="text" class="form-control" id="Ciudad" aria-describedby="text"
-                        placeholder="Ej:Negra Arroyo 308" disabled>
+                    <input type="text" class="form-control" name="direccion" id="Ciudad" aria-describedby="text"
+                        placeholder="Ej:Negra Arroyo 308" value="{{ datosuser.us_dir }}" disabled>
                 </div>
+
                 <div class="form-group">
-                    <label for="inputRegioon">Ciudad</label>
-                    <select id="inputciudad" class="form-control" disabled>
-                        <option selected>Seleccione...</option>
-                        <option>...</option>
-                        <option>...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="inputRegioon">Región</label>
+                    <label for="inputRegioon">Region</label>
                     <select id="inputRegion" class="form-control" disabled>
-                        <option selected>Seleccione...</option>
-                        <option>...</option>
-                        <option>...</option>
-                        <option>...</option>
+                        <option selected>{{ datosuser.id_reg }}</option>
+                        {%  for reg in regiones  %}
+                        <option>{{ reg.desc_reg }}</option>
+                        {%  endfor  %}
                     </select>
                 </div>
-                </form>
 
-
+                <div class="form-group">
+                    <label for="inputRegioon">Comuna</label>
+                    <select id="inputciudad" class="form-control" disabled>
+                        <option selected>{{ datosuser.id_ciud }}</option>
+                        {%  for ciu in comunas  %}
+                        <option>{{ ciu.desc_ciu }}</option>
+                        {%  endfor  %}
+                    </select>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -100,14 +130,17 @@
                     <imput class="btn btn-dark bt" type="button" value="activar" onclick="activarimput()">
                         Modificar
                         Datos</imput>
-                    <imput class="btn btn-dark bt" type="button">Guardar Cambios</imput>
+                    <button class="btn btn-dark bt" type="submit" id="btn-guardar" disabled>Guardar
+                        Cambios</button>
                 </div>
             </div>
 
         </div>
+    </form>
 
-    </div>
+
 </div>
+
 <br>
 <br>
 <br>
@@ -119,24 +152,32 @@
             if (document.getElementById('Name').disabled == false)
             {
                 document.getElementById('Name').disabled=true
+                document.getElementById('Lastname').disabled=true
+                document.getElementById('user-name').disabled=true
+                document.getElementById('Fono').disabled=true
                 document.getElementById('Rut').disabled=true
                 document.getElementById('Nacimiento').disabled=true
                 document.getElementById('Phone').disabled=true
                 document.getElementById('Ciudad').disabled=true
                 document.getElementById('inputciudad').disabled=true
                 document.getElementById('inputRegion').disabled=true
+                document.getElementById('btn-guardar').disabled=true
             } else{
                 document.getElementById('Name').disabled=false
-                document.getElementById('Rut').disabled=false
-                document.getElementById('Nacimiento').disabled=false
+                document.getElementById('Lastname').disabled=false
+                document.getElementById('user-name').disabled=true
+                document.getElementById('Fono').disabled=false
+                document.getElementById('Rut').disabled=true
+                document.getElementById('Nacimiento').disabled=true
                 document.getElementById('Phone').disabled=false
                 document.getElementById('Ciudad').disabled=false
-                document.getElementById('inputciudad').disabled=false
-                document.getElementById('inputRegion').disabled=false
+                document.getElementById('inputciudad').disabled=true
+                document.getElementById('inputRegion').disabled=true
+                document.getElementById('btn-guardar').disabled=false
             }
             
         }
-    </script>
+</script>
 
 
 
