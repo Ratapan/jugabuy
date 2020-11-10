@@ -36,23 +36,19 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
     const contenidoDiv = `
     <div class="row itemsDelCarrito pipi">
 
-    <div class="col-6">
-            <div class="form-row shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                
+    <div class="col-11">
+        <div class="form-row  shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
             <img src=${itemImage} class="shopping-cart-image">
-                
             <h6 class="form-group shopping-cart-item-title shoppingCartItemTitle parrafo_carta titu  ml-3 mb-0">${itemTitle}</h6>
-            
-            </div>
         </div>
 
-        <div class="col-2">
+        <div class="col-1">
             <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                 <p  class=" col-md-12 item-price mb-0 precioItem">${itemPrice}</p>
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-1">
             <div
                 class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
                 <input class="shopping-cart-quantity-input cantidadTitulos" type="number"
@@ -102,7 +98,7 @@ function actualizarTotal() {
     var oo = 'preciocompra';
     actualizarlocal(oo,tt);
 
-    compraTotal.innerHTML = `$${total.toFixed(2)}`;
+    compraTotal.innerHTML = `$${total}`;
 
 }
 
