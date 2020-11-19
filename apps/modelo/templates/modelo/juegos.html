@@ -5,11 +5,15 @@
 
 {% block nom %}
 <title>Compra Juegos</title>
-{% endblock nom %}
 
+{% endblock nom %}
 <link rel="stylesheet" href="{% static 'modelo/css/Style_juegos.css'%}">
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@500&family=Russo+One&display=swap"
     rel="stylesheet">
+
+
+
+
 
 {% block main %}
 
@@ -24,7 +28,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>🐱‍🏍 Su pedido fue ingresado, vea su biblioteca 🐱‍👤</p>
+
+                <form method="POST" action="{% url 'ComprarJuego' %}">
+                    {% csrf_token %}     
+                        
+                
+                        <div class="divcarro shopping-cart-items shoppingCartItemsContainer">
+                
+                        </div>  
+                
+                        <div class="shopping-cart-total d-flex align-items-center">
+
+                            <p class="mb-0">Total</p>
+
+                            <p id="preciototal"  name="price" class="ml-4 mb-0 totalCompra">0</p>
+
+                            <button class="btn btn-success ml-auto comprarButton" 
+                            type="submit" data-toggle="modal">Comprar</button>
+                        </div>
+                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -68,10 +91,21 @@
         <div class="i filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
             <div class="Fcarta">
                 <img src="{% static 'modelo/imagen/juegos/' %}{{i.j_port}}" class="i-im icarta img-fluid " alt="">
-                <h5 class="i-nom">{{i.j_nom}}</h5>
-                <p class="parrafo_carta">{{i.j_desc}}</p>
+                <h5 class="i-nom">{{i.j_nom}} </h5>
+
+                <p class="parrafo_carta">
+                    <a  onclick="vermas('mas', '{{i.j_nom}}' );" id="mas">[Ver descripcion]</a>
+                </p>
+
+
+                <p id="{{i.j_nom}}" style="display:none;" class="parrafo_carta">{{i.j_desc}} 
+                    <a  onclick="vermas('menos', '{{i.j_nom}}' );" id="menos" >[Sin descripcion]</a>
+                </p>
+
+
+
                 <p class="i-pre parrafo_carta">${{i.j_price}}</p>
-                <button class="btn btn-dark mb-2 carr">AÑADIR AL CARRITO</button>
+                <button class="btn btn-dark mb-2 carr">Añadir al carro</button>
             </div>
         </div>
         {% endfor %}
@@ -81,37 +115,20 @@
 
 
 
-    <div class="divcarro shopping-cart-items shoppingCartItemsContainer"></div>
-
-    <!--JS de los filtros-->
-
-    <div class="row">
-        <div class="col-12">
-            <div class="shopping-cart-total d-flex align-items-center">
-                <p class="mb-0">Total</p>
-                <p class="ml-4 mb-0 totalCompra">0€</p>
-                <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                    data-delay="2000">
-                    <div class="toast-header">
-                        <span>✅</span>
-                        <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
-                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="toast-body text-white">
-                        Se aumentó correctamente la cantidad
-                    </div>
-                </div>
-                <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-                    data-target="#comprarModal">Comprar</button>
-            </div>
-        </div>
-    </div>
-
-
 </div>
 
+<script> 
+    function vermas(id,de){
+        if(id=="mas"){
+        document.getElementById(de).style.display="block";   
+        document.getElementById("mas").style.display="none"; 
+        }
+    else{
+        document.getElementById(de).style.display="none";
+        document.getElementById("mas").style.display="inline";
+        }
+    }
+</script>
 
 
 <script>
