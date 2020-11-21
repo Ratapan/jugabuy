@@ -31,18 +31,30 @@
             <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav  ">
                     <a class="navbar-brand active " href=" {% url 'Inicio' %}">
-                        <img src="{% static 'modelo/imagen/Group 1 (1).png'%}" alt=""
-                            class="navbar-nav"></a>
+                        {% if perms.modelo.add_juego %}
+                        <img src="{% static 'modelo/imagen/logoAdmin.png'%}" alt="" class="navbar-nav"></a>
+                        {% else %}
+                        <img src="{% static 'modelo/imagen/Group 1 (1).png'%}" alt="" class="navbar-nav"></a>
+                        {% endif %}
+                    {% if perms.modelo.add_juego %}
+                    <li class="nav-item ">
+                        <a class="nav-link " href="{%  url 'juego' %}">Mantenedor de Juegos</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item ">
                         <a class="nav-link " href="{%  url 'juego' %}">Juegos</a>
                     </li>
+                    {% if not perms.modelo.add_juego %}
                     <li class="nav-item  ">
                         <a class="nav-link" href="{%  url 'novedades' %}">Novedades</a>
                     </li>
+                    {%  endif  %}
                     {%  if request.user.is_authenticated  %}
+                    {% if not perms.modelo.add_juego %}
                     <li class="nav-item  ">
-                            <a class="nav-link" href="{% url 'datospersonales' %}">Perfil</a>
-                        </li>
+                        <a class="nav-link" href="{% url 'datospersonales' %}">Perfil</a>
+                    </li>
+                    {%  endif  %}
                     {%  endif  %}
                 </ul>
             </div>
