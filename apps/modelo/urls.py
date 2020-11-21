@@ -22,6 +22,8 @@ urlpatterns = [
     path('Juegos', views.Juegos, name="juego"),
     path('juegocomprado', views.ComprarJuego, name="ComprarJuego"),
 
+
+
    # path('perfil', views.Perfil, name="perfil"),
     path('novedades', views.Novedades, name="novedades"),
     path('login', LoginView.as_view(
@@ -63,7 +65,7 @@ urlpatterns = [
     path('perfil/actualizar-fotos', views.formcargarfoto, name="cargarfoto"),
     path('perfil/cargarfoto/<user>/', views.cargarfoto, name="cargarfoto"),
     path('perfil/biblioteca/actualizar-datos', views.actualizardatos, name="actualizardatos"),
-    
+    path('perfil/actualizarperfil', views.ActualizarPerfil, name="actualizarperfil"),
     #ENDPERFIL
 
 
