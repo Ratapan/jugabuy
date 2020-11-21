@@ -6,6 +6,13 @@ from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView, LogoutView
 
+#importar los archivos del rest
+from rest_framework import routers
+#agregar un enrutador por defecto
+router = routers.DefaultRouter()
+#agregar los diferentes urls al enrutador
+router.register('ver/',views.LoginViewSet)
+
 # Primera urls para vistas con el alias
 
 urlpatterns = [
@@ -59,6 +66,11 @@ urlpatterns = [
     
     #ENDPERFIL
 
+
+    #agregar un path- le dira que estamos agregando un api y que incluiremos todas las rutas que emos creado para el router
+    path('api/',include(router.urls)),
+    #agregar un nuevo path para el login 
+    path('', include('social_django.urls', namespace='social')),
 
 
 ]

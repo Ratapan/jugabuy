@@ -1,3 +1,5 @@
+let compras = [];
+
 const addBoton = document.querySelectorAll('.carr');
 addBoton.forEach((clikButton) => {
     clikButton.addEventListener('click', Clicked);
@@ -15,13 +17,26 @@ function Clicked(event) {
 
     const itemTitle = item.querySelector('.i-nom').textContent;
     const itemPrice = item.querySelector('.i-pre').textContent;
+    const itemid = item.querySelector('.i-id').textContent;
     const itemImage = item.querySelector('.i-im').src;
-    insterAlCarro(itemTitle, itemPrice, itemImage);
+    insterAlCarro(itemTitle, itemPrice, itemImage,itemid);
+
+  
 }
 
-function insterAlCarro(itemTitle, itemPrice, itemImage) {
+function insterAlCarro(itemTitle, itemPrice, itemImage, itemid) {
     const elem = divcarro.getElementsByClassName('.shoppingCartItemTitle');
+    let compra = {
+        id: itemid,
+        nombre : itemTitle,
+        precio : itemPrice,
+    };
+
+    compras.push(compra)
+
+    localStorage.setItem('compras', JSON.stringify(compras))
     for (let i = 0; i < elem.length; i++) {
+        
         if (elem[i].innerText === itemTitle) {
             let Quantity = elem[i].parentElement.parentElement.parentElement.querySelector(
                 '.cantidadTitulos');
@@ -30,7 +45,7 @@ function insterAlCarro(itemTitle, itemPrice, itemImage) {
             return;
         }
     }
-
+    console.log(compras)
 
     const fila = document.createElement('div');
     const contenidoDiv = `
@@ -104,7 +119,7 @@ function actualizarTotal() {
 
 function deleteClick(event) {
 
-    const delClick = event.target;
+
     delClick.closest('.itemsDelCarrito').remove();
 
     actualizarTotal();
@@ -123,8 +138,10 @@ function cambioCantidad(event) {
 
 function clickcomprar() {
 
-    divcarro.innerHTML = ``;
-    actualizarTotal();
+    console.log(JSON.parse(localStorage.getItem('compras')))
+    localStorage.clear()
+    // divcarro.innerHTML = ``;
+    // actualizarTotal();
 };
 
 

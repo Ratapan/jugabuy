@@ -1,3 +1,4 @@
+from apps.modelo.serializers import LoginSerializer
 from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.modelo.models import Juego, perfil,Region,Ciudad, Compra, fotoPerfil
@@ -10,6 +11,9 @@ from django.contrib import messages
 from django.contrib import messages
 # Create your views here.
 from .forms import CreateUserForm, PerfilForm
+
+from rest_framework import viewsets
+from .serializers import LoginSerializer
 
 def Inicio(request):
     return render(request,'modelo/index.html')
@@ -276,7 +280,11 @@ def actualizardatos(request):
 #ENDPERFIL
 
 
-
+#creando vistas para los serializadores
+class LoginViewSet(viewsets.ModelViewSet):
+    #se usan para enviar informacion como para recibirla
+    queryset = User.objects.all()
+    serializer_class = LoginSerializer
 
 
 # def mostrarRegiones(request):
