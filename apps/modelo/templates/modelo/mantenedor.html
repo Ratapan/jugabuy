@@ -1,0 +1,80 @@
+{%  extends 'modelo/plantilla.html' %}
+
+{% load static %}
+
+{% block nom %}
+<title>Mantenedor de Juegos</title>
+{% endblock nom %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div>
+        <h5 class="mb-4">Mantenedor de Juegos .-</h5>
+    </div>
+    <div class="d-flex justify-content-center mb-4"><!--centrar Foto-->
+        <img src="{% static 'modelo/imagen/bannerMantenedor.jpg' %}" style="display: block;" alt="">
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre Juego</label>
+                    <div class="d-flex">
+                        <input type="text" class="form-control" id="" placeholder="" name="">
+                        <button class="btn btn-dark bt ml-2" type="submit" id="">Buscar</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Descripcion</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Plataforma</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Foto portada</label>
+                    <input type="file" class="form-control" id="" placeholder="" name="">
+                </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Valor $</label>
+                <input type="text" class="form-control" id="" placeholder="" name="">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Fecha de Salida</label>
+                <input type="date" class="form-control" id="" placeholder="" name="">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Stock de Producto</label>
+                <input type="text" class="form-control" id="" placeholder="" name="">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Status</label>
+                <input type="text" class="form-control" id="" placeholder="" name="">
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <br>
+        <br>
+        <button class="btn btn-dark bt" type="submit" id="">Agregar</button>
+        <button class="btn btn-dark bt" type="submit" id="">Modificar</button>
+        <button class="btn btn-dark bt" type="submit" id="">Eliminar</button>
+        <br>
+        <br>
+        <br>
+    </div>
+    </form>
+
+
+</div>
+
+{% endblock main %}

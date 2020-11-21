@@ -261,10 +261,13 @@ def actualizardatos(request):
         messages.success(request, 'Error Al Actualizar los Datos')
 
     return redirect('datospersonales')
-
-
 # ENDPERFIL
 
+#MANTENEDOR
+def mantenedor(request):
+	return render(request, 'modelo/mantenedor.html')
+
+#ENDMANTENEDOR
 
 # creando vistas para los serializadores
 class LoginViewSet(viewsets.ModelViewSet):

@@ -68,6 +68,10 @@ urlpatterns = [
     path('perfil/actualizarperfil', views.ActualizarPerfil, name="actualizarperfil"),
     #ENDPERFIL
 
+    #MANTENEDOR
+    path('mantenedor_de_juegos/', views.mantenedor, name="mantenedor"),
+    #ENDMANTENEDOR
+
 
     #agregar un path- le dira que estamos agregando un api y que incluiremos todas las rutas que emos creado para el router
     path('api/',include(router.urls)),
