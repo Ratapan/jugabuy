@@ -267,6 +267,28 @@ def actualizardatos(request):
 def mantenedor(request):
 	return render(request, 'modelo/mantenedor.html')
 
+def agregarJuego(request):
+
+    nom_juego = request.POST['nombre_juego']
+    descrip =  request.POST['descripcion']
+    platafo = request.POST['plataforma']
+    fot_juego = request.FILES.get('foto_portada')
+    valor = request.POST['valor'] 
+    fecha_sal = request.POST['fecha_salida']
+    stock = request.POST['stock'] 
+    status = request.POST['sele_status']
+
+    try:
+        Juego.objects.create(j_nom=nom_juego, j_desc=descrip, j_plt=platafo, j_port=fot_juego, j_price=valor, j_fe_sal=fecha_sal, j_stock=stock, j_status=status)
+        print("======================Juegos agregado======================")
+    except:
+        print("======================Juegos **NO** agregado======================")
+    
+    
+    return redirect('mantenedor')
+
+
+
 #ENDMANTENEDOR
 
 # creando vistas para los serializadores
