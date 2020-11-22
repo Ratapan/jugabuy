@@ -1,0 +1,96 @@
+{%  extends 'modelo/plantilla.html' %}
+
+{% load static %}
+
+{% block nom %}
+<title>Mantenedor de Juegos</title>
+{% endblock nom %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div>
+        <h5 class="mb-4">Mantenedor de Juegos .-</h5>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <!--centrar Foto-->
+        <img src="{% static 'modelo/imagen/bannerMantenedor.jpg' %}" style="display: block;" alt="">
+    </div>
+
+    <form action="{%  url 'agregarJuego'  %}" method="post" enctype="multipart/form-data">
+        <div class="d-flex">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                {%  csrf_token  %}
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre Juego</label>
+                    <div class="d-flex">
+                        <input type="text" class="form-control" id="" placeholder="" name="nombre_juego">
+                        <button class="btn btn-dark bt ml-2" type="submit" id="" disabled>Buscar</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Descripcion</label>
+                    <!--<input type="textarea" class="form-control" id="" placeholder="" name="descripcion">-->
+                    <p><textarea name="descripcion" type="input" class="form-control" type cols="40" rows="5"
+                            name="descripcion"></textarea></p>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Plataforma</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="plataforma">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Foto portada</label>
+                    <input type="file" class="form-control" id="" placeholder="" accept="image/*" name="foto_portada">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Valor $</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="valor">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Fecha de Salida</label>
+                        <input type="date" class="form-control" name="fecha_salida">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Stock de Producto</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="stock">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Status</label>
+                        <select id="inputRegion" class="form-control" name="sele_status">
+                            <option selected>-.Seleccione.-</option>
+                            <option value="1">Disponible</option>
+                            <option value="2">No Disponible</option>
+                            <option value="3">Proximamente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <br>
+                    <br>
+                    <button class="btn btn-dark bt" type="submit" id="">Agregar</button>
+                    <button class="btn btn-dark bt" type="submit" id="" disabled>Modificar</button>
+                    <button class="btn btn-dark bt" type="submit" id="" disabled>Eliminar</button>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+</div>
+
+
+{% endblock main %}

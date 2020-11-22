@@ -90,7 +90,7 @@
         {% for i in juego %}
         <div class="i filterDiv {{i.j_plt}}  col-xs-12  col-md-4 col-lg-4 text-center px-2 mb-4 ">
             <div class="Fcarta">
-                <img src="{% static 'modelo/imagen/juegos/' %}{{i.j_port}}" class="i-im icarta img-fluid " alt="">
+                <img src="{{i.j_port.url}}" class="i-im icarta img-fluid " alt="">
                 <h5 class="i-nom">{{i.j_nom}} </h5>
                 <p  class="i-id" style="display: none;">{{i.j_id}} </p>
 

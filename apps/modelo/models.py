@@ -73,9 +73,9 @@ class Juego(models.Model):
     j_nom    = models.CharField(max_length=100, null=False, blank=False, verbose_name="Nombre")
     j_plt    = models.CharField(max_length=10, null=False, blank=False, verbose_name="Plataforma")
     j_desc   = models.CharField(max_length=2000, null=False, blank=False, verbose_name="Descripcion")
-    j_port   = models.CharField(max_length=10, null=False, blank=False, verbose_name="Nombre de portada")
+    j_port   = models.ImageField(upload_to='juegos')
     j_price  = models.IntegerField(null=False, blank=False, verbose_name="Precio")
-    j_fe_sal = models.DateField(null=False, blank=False, verbose_name="Fecha de salida")
+    j_fe_sal = models.CharField(max_length=15, null=False, blank=False, verbose_name="Fecha de salida")
     j_status = models.IntegerField(null=False, blank=False, verbose_name="Status")
     j_stock  = models.IntegerField(null=False, blank=False, verbose_name="Stock")
     def __str__(self):
