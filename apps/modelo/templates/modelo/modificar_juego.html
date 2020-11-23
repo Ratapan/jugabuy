@@ -1,0 +1,57 @@
+{%  extends 'modelo/plantilla_mantenedor.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+{% for j in juegos %}
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead class="thead-dark ">
+                    <tr>
+                        <th scope="col" class="">Portada</th>
+                        <th scope="col" class="">Nombre</th>
+                        <!--<th scope="col" class="small">Descripcion</th>-->
+                        <th scope="col" class="">Plataforma</th>
+                        <th scope="col" class="">Precio</th>
+                        <th scope="col" class="" style="width: 15%">Fecha salida</th>
+                        <th scope="col" class="">Stock</th>
+                        <th scope="col" class="">Status</th>
+                        <th scope="col" class=""></th>
+                        <th scope="col" class=""></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td style="width: 13%">
+                            <img src="{{ j.j_port.url }}" class="img-fluid img-thumbnail" alt="Sheep">
+                        </td>
+                        <td class="small">{{ j.j_nom }}</td>
+                        <!--<td>{{ j.j_desc }}</td>-->
+                        <td class="small">{{ j.j_plt }}</td>
+                        <td class="small">{{ j.j_price }}</td>
+                        <td class="small">{{ j.j_fe_sal }}</td>
+                        <td class="small">{{ j.j_stock }}</td>
+                        <td class="small">{{ j.j_status }}</td>
+                        <td><button class="btn btn-outline-dark btn-sm" type="submit" id="">Modificar</button></td>
+                        <td><button class="btn btn-outline-dark btn-sm" type="submit" id="">Eliminar</button></td>
+                        
+                    </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{{ block.super }}
+{% endblock %}
