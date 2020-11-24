@@ -1,0 +1,80 @@
+{%  extends 'modelo/plantilla_mantenedor.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+<br>
+<br>
+<div class="container">
+    <form action="{%  url 'agregarJuego'  %}" method="post" enctype="multipart/form-data">
+        <div class="d-flex">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                {%  csrf_token  %}
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre Juego</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="nombre_juego">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Descripcion</label>
+                    <!--<input type="textarea" class="form-control" id="" placeholder="" name="descripcion">-->
+                    <p><textarea name="descripcion" type="input" class="form-control" type cols="40" rows="5"
+                            name="descripcion"></textarea></p>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Plataforma</label>
+                    <select id="" class="form-control" name="plataforma">
+                        <option selected>-.Seleccione.-</option>
+                        <option value="PC">PC</option>
+                        <option value="PS4">PS4</option>
+                        <option value="XBOX ONE">XBOX ONE</option>
+                        <option value="NINTENDO SWITCH">NINTENDO SWITCH</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Foto portada</label>
+                    <input type="file" class="form-control" id="" placeholder="" accept="image/*" name="foto_portada">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Valor $</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="valor">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Fecha de Salida</label>
+                        <input type="date" class="form-control" name="fecha_salida">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Stock de Producto</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="stock">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Status</label>
+                        <select id="inputRegion" class="form-control" name="sele_status">
+                            <option selected>-.Seleccione.-</option>
+                            <option value="1">Disponible</option>
+                            <option value="2">No Disponible</option>
+                            <option value="3">Proximamente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <br>
+                    <br>
+                    <button class="btn btn-dark bt" type="submit" id="">Guardar Cambios</button>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{{ block.super }}
+{% endblock %}

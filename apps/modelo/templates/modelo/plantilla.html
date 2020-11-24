@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </head>
 
 <body onload="idpre();">
@@ -39,7 +40,7 @@
                         {% endif %}
                     {% if perms.modelo.add_juego %}
                     <li class="nav-item ">
-                        <a class="nav-link " href="{%  url 'juego' %}">Mantenedor de Juegos</a>
+                        <a class="nav-link " href="{%  url 'mantenedor' %}">Mantenedor de Juegos</a>
                     </li>
                     {% endif %}
                     <li class="nav-item ">
@@ -189,7 +190,8 @@
 
 
 
-
+    
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
