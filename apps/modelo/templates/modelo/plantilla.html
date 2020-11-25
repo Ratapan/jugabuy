@@ -6,6 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      {% comment %} ompartir en facebook  {% endcomment %}
+    <meta property="og:url"           content="http://127.0.0.1:8000/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="JugaBuy" />
+    <meta property="og:description"   content="Compra tus juegos" />
+    <meta property="og:image"         content="http://127.0.0.1:8000/static/modelo/imagen/doom.jpg.jpg "/>
+    
+    
     {% block nom %}
     {% endblock nom %}
     <!-- Bootstrap CSS -->
@@ -131,7 +140,21 @@
             </div>
         </div>
     </div>
+
+    <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
     
+      <!-- Your share button code -->
+      <div class="fb-share-button" 
+         data-href="http://127.0.0.1:8000/" 
+        data-layout="button_count">
+     </div>
 
 
     {% block main %}
@@ -174,14 +197,24 @@
                         <a class="navbar-brand text-white" href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
+                
             </div>
         </div>
+
+         <!-- Compartir en Facebook -->
+        <div class="text-center py-3 text-white">
+            <div class="fb-share-button" data-href="http://127.0.0.1:8000/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+ 
+        </div>
+         <!-- Compartir en Facebook -->
 
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
             <a href="#" class="text-success">JugaBuy</a>
+            
         </div>
+
         <!-- Copyright -->
 
     </footer>
