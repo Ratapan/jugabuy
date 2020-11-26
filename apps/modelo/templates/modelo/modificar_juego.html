@@ -7,7 +7,16 @@
 {% block content %}
 
 <br>
+
+<div class="row justify-content-end search pr-5">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="buscar" value="{{ request.GET.buscar }}">
+        <button class="btn btn-dark" type="submit">Search</button>
+    </form>
+</div>
 <br>
+
+{%  if juegos  %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -31,7 +40,13 @@
                 <tbody class="text-center">
                     <tr class="">
                         <td style="width: 8%;">
-                            <img src="{{ j.j_port.url }}" style="display: block;" class="img-fluid img-thumbnail" alt="Sheep">
+                            {% if j.j_port %}
+                            <img src="{{ j.j_port.url }}" style="display: block;" class="img-fluid img-thumbnail"
+                                alt="Sheep">
+                            {% else %}
+                            <img src="{% static 'modelo/imagen/juego-defecto.jpg'%}" style="display: block;" class="img-fluid img-thumbnail"
+                            alt="Sheep">
+                            {% endif %}
                         </td>
                         <td class="small">{{ j.j_nom }}</td>
                         <td class="small"
@@ -54,13 +69,17 @@
                         <td><button class="btn btn-outline-dark btn-sm" type="submit" id="">Eliminar</button></td>
 
                     </tr>
-                {% endfor %}
+                    {% endfor %}
             </table>
 
         </div>
     </div>
 </div>
-
+{%  else  %}
+<div>
+    {%  include 'modelo/no_encontrado.html'  %}
+</div>
+{% endif %}
 
 
 
