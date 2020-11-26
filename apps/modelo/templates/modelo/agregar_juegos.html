@@ -13,19 +13,19 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 {%  csrf_token  %}
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Nombre Juego</label>
-                    <input type="text" class="form-control" id="" placeholder="" name="nombre_juego">
+                    <label for="nombre_juego">Nombre Juego</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="nombre_juego" required maxlength="60">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Descripcion</label>
+                    <label for="descripcion">Descripcion</label>
                     <!--<input type="textarea" class="form-control" id="" placeholder="" name="descripcion">-->
                     <p><textarea name="descripcion" type="input" class="form-control" type cols="40" rows="5"
-                            name="descripcion"></textarea></p>
+                            name="descripcion" maxlength="1000"></textarea></p>
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Plataforma</label>
-                    <select id="" class="form-control" name="plataforma">
-                        <option selected>-.Seleccione.-</option>
+                    <label for="plataforma">Plataforma</label>
+                    <select required class="form-control" name="plataforma">
+                        <option value="" selected disabled>-.Seleccione.-</option>
                         <option value="PC">PC</option>
                         <option value="PS4">PS4</option>
                         <option value="XBOX ONE">XBOX ONE</option>
@@ -33,7 +33,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Foto portada</label>
+                    <label for="foto_portada">Foto portada</label>
                     <input type="file" class="form-control" id="" placeholder="" accept="image/*" name="foto_portada">
                 </div>
             </div>
@@ -41,22 +41,22 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="">
                     <div class="form-group">
-                        <label for="formGroupExampleInput2">Valor $</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="valor">
+                        <label for="valor">Valor $</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="valor" required pattern="[0-9]+">
                     </div>
                     <div class="form-group">
                         <label for="">Fecha de Salida</label>
-                        <input type="date" class="form-control" name="fecha_salida">
+                        <input type="date" class="form-control" name="fecha_salida" required>
 
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput2">Stock de Producto</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="stock">
+                        <label for="stock">Stock de Producto</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="stock" required pattern="[0-9]+">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput2">Status</label>
-                        <select id="inputRegion" class="form-control" name="sele_status">
-                            <option selected>-.Seleccione.-</option>
+                        <label for="sele_status">Status</label>
+                        <select required class="form-control" name="sele_status">
+                            <option value="" selected disabled>-.Seleccione.-</option>
                             <option value="1">Disponible</option>
                             <option value="2">No Disponible</option>
                             <option value="3">Proximamente</option>

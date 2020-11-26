@@ -289,9 +289,14 @@ def agregarJuego(request):
 
 def modificarJuego(request):
 
+    busqueda = request.GET.get("buscar")
+
     juegos = Juego.objects.all()
     print("======================================================")
     print(juegos)
+
+    if busqueda:
+        juegos = Juego.objects.filter(j_nom__icontains = busqueda)
 
     data = {
         'juegos': juegos
