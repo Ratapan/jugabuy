@@ -30,22 +30,22 @@
             <div class="modal-body">
 
                 <form method="POST" action="{% url 'ComprarJuego' %}">
-                    {% csrf_token %}     
-                        
-                
-                        <div class="divcarro shopping-cart-items shoppingCartItemsContainer">
-                
-                        </div>  
-                
-                        <div class="shopping-cart-total d-flex align-items-center">
+                    {% csrf_token %}
 
-                            <p class="mb-0">Total</p>
 
-                            <p id="preciototal"  name="price" class="ml-4 mb-0 totalCompra">0</p>
+                    <div class="divcarro shopping-cart-items shoppingCartItemsContainer">
 
-                            <button class="btn btn-success ml-auto comprarButton" 
-                            type="submit" data-toggle="modal">Comprar</button>
-                        </div>
+                    </div>
+
+                    <div class="shopping-cart-total d-flex align-items-center">
+
+                        <p class="mb-0">Total</p>
+
+                        <p id="preciototal" name="price" class="ml-4 mb-0 totalCompra">0</p>
+
+                        <button class="btn btn-success ml-auto comprarButton" type="submit"
+                            data-toggle="modal">Comprar</button>
+                    </div>
                 </form>
 
             </div>
@@ -90,23 +90,29 @@
         {% for i in juego %}
         <div class="i filterDiv {{i.j_plt}}  col-xs-12  col-md-3 col-lg-3 text-center px-2 mb-4 ">
             <div class="Fcarta">
+                {% if i.j_port %}
                 <img src="{{i.j_port.url}}" class="i-im icarta img-fluid " alt="">
+                {% else %}
+                <img src="{% static 'modelo/imagen/juego-defecto.jpg'%}" class="i-im icarta img-fluid " alt="">
+                {% endif %}
                 <h5 class="i-nom">{{i.j_nom}} </h5>
-                <p  class="i-id" style="display: none;">{{i.j_id}} </p>
+                <p class="i-id" style="display: none;">{{i.j_id}} </p>
 
                 <p class="parrafo_carta">
-                    <a  onclick="vermas('mas', '{{i.j_nom}}' );" id="mas">[Ver descripcion]</a>
+                    <a onclick="vermas('mas', '{{i.j_nom}}' );" id="mas">[Ver descripcion]</a>
                 </p>
 
+                <div>
+                    <p id="{{i.j_nom}}" style="display:none;" class="arrafo_carta">{{i.j_desc}}
+                        <a onclick="vermas('menos', '{{i.j_nom}}' );" id="menos">[Sin descripcion]</a>
+                    </p>
+                </div>
 
-                <p id="{{i.j_nom}}" style="display:none;" class="parrafo_carta">{{i.j_desc}} 
-                    <a  onclick="vermas('menos', '{{i.j_nom}}' );" id="menos" >[Sin descripcion]</a>
-                </p>
 
-
-
+                {% if not perms.modelo.add_juego %}
                 <p class="i-pre parrafo_carta">${{i.j_price}}</p>
                 <button class="btn btn-dark mb-2 carr">Añadir al carro</button>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -118,15 +124,15 @@
 
 </div>
 
-<script> 
-    function vermas(id,de){
-        if(id=="mas"){
-        document.getElementById(de).style.display="block";   
-        document.getElementById("mas").style.display="none"; 
+<script>
+    function vermas(id, de) {
+        if (id == "mas") {
+            document.getElementById(de).style.display = "block";
+            document.getElementById("mas").style.display = "none";
         }
-    else{
-        document.getElementById(de).style.display="none";
-        document.getElementById("mas").style.display="inline";
+        else {
+            document.getElementById(de).style.display = "none";
+            document.getElementById("mas").style.display = "inline";
         }
     }
 </script>
