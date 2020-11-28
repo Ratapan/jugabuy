@@ -1,0 +1,93 @@
+{%  extends 'modelo/plantilla_mantenedor.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<br>
+<div class="d-flex">
+    <div class="ml-3">
+        <h5 class="mb-4">Listado de Juegos.-</h5>
+    </div>
+    <div class="ml-auto mr-3">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="buscar"
+                value="{{ request.GET.buscar }}">
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<br>
+
+{%  if juegos  %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image table-responsive">
+                <thead class="thead-dark text-center">
+                    <tr>
+                        <th scope="col" class="" style="white-space: nowrap;">Portada</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Nombre</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Descripcion</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Plataforma</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Precio</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Fecha salida</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Stock</th>
+                        <th scope="col" class="" style="white-space: nowrap;">Status</th>
+                        <th scope="col" class="" style="white-space: nowrap;"><i class="fas fa-cog"></i></th>
+                        <th scope="col" class="" style="white-space: nowrap;"><i class="fas fa-trash-alt"></i></th>
+
+                    </tr>
+                </thead>
+                {% for j in juegos %}
+                <tbody class="text-center">
+                    <tr class="">
+                        <td style="width: 8%;">
+                            {% if j.j_port %}
+                            <img src="{{ j.j_port.url }}" style="display: block;" class="img-fluid img-thumbnail"
+                                alt="Sheep">
+                            {% else %}
+                            <img src="{% static 'modelo/imagen/juego-defecto.jpg'%}" style="display: block;"
+                                class="img-fluid img-thumbnail" alt="Sheep">
+                            {% endif %}
+                        </td>
+                        <td class="small">{{ j.j_nom }}</td>
+                        <td class="small"
+                            style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;">
+                            {{ j.j_desc }}</td>
+                        <td class="small">{{ j.j_plt }}</td>
+                        <td class="small">{{ j.j_price }}</td>
+                        <td class="small">{{ j.j_fe_sal }}</td>
+                        <td class="small">{{ j.j_stock }}</td>
+                        <td class="small">
+                            {% if j.j_status == 1 %}
+                            Disponible
+                            {% elif j.j_status == 2 %}
+                            No Disponible
+                            {% else %}
+                            Proximamente
+                            {% endif %}
+                        </td>
+                        <td><a href="{%  url 'cargarDatosJuego' j.j_id  %}" class="btn btn-outline-dark btn-sm"
+                                type="submit" id="">Modificar</a></td>
+                        <td><button class="btn btn-outline-dark btn-sm" type="submit" id="">Eliminar</button></td>
+
+                    </tr>
+                    {% endfor %}
+            </table>
+
+        </div>
+    </div>
+</div>
+{%  else  %}
+<div>
+    {%  include 'modelo/no_encontrado.html'  %}
+</div>
+{% endif %}
+
+
+
+{{ block.super }}
+{% endblock %}

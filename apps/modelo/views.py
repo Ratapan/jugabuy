@@ -287,7 +287,7 @@ def agregarJuego(request):
     
     return redirect('mantenedor')
 
-def modificarJuego(request):
+def listadoJuego(request):
 
     busqueda = request.GET.get("buscar")
 
@@ -302,7 +302,37 @@ def modificarJuego(request):
         'juegos': juegos
     }
 
-    return render(request, 'modelo/modificar_Juego.html', data)
+    return render(request, 'modelo/listado_juego.html', data)
+
+def cargarDatosJuego(request, id_):
+
+    juego = Juego.objects.get(j_id=id_)
+
+    data = {
+        'juego':juego
+    }
+
+    return render(request, 'modelo/modificar_juego.html', data)
+
+def modificarJuego(request):
+
+    id_ = request.POST['id_juego']
+    nom = request.POST['nombre_juego']
+    desc = request.POST['descripcion']
+    plat = request.POST['plataforma']
+    #port = request.FILES.get('foto_portada') #error al actualizar
+    preci = request.POST['valor']
+    fech = request.POST['fecha_salida']
+    stock = request.POST['stock']
+    status = request.POST['sele_status']
+
+    try:
+        Juego.objects.filter(j_id=id_).update(j_nom=nom, j_desc=desc, j_plt=plat, j_price=preci, j_fe_sal=fech, j_stock=stock, j_status=status)
+        print("======================Juego*Actualizado======================")
+    except:
+        print("======================Juego**NO**Actualizado======================")
+    
+    return redirect('listadoJuego')
 
 
 
