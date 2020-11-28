@@ -21,6 +21,7 @@ urlpatterns = [
     path('carrito', views.Carrito, name="carrito"),
     path('Juegos', views.Juegos, name="juego"),
     path('juegocomprado', views.ComprarJuego, name="ComprarJuego"),
+    path('',include('pwa.urls')),
 
 
 

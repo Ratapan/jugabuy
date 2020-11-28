@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.modelo',
     'rest_framework',
     'social_django',
+    'pwa',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN' # only if django version >= 3.0
@@ -163,3 +164,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR,'serviceworker.js')
