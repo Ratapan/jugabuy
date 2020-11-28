@@ -6,6 +6,8 @@
 
 {% block content %}
 
+
+
 <br>
 <div class="d-flex">
     <div class="ml-3">
@@ -72,7 +74,7 @@
                         </td>
                         <td><a href="{%  url 'cargarDatosJuego' j.j_id  %}" class="btn btn-outline-dark btn-sm"
                                 type="submit" id="">Modificar</a></td>
-                        <td><button class="btn btn-outline-dark btn-sm" type="submit" id="">Eliminar</button></td>
+                        <td><a href="#" onclick="eliminarJuego({{ j.j_id }})" class="btn btn-outline-dark btn-sm" type="" id="">Eliminar</a></td>
 
                     </tr>
                     {% endfor %}
@@ -86,6 +88,27 @@
     {%  include 'modelo/no_encontrado.html'  %}
 </div>
 {% endif %}
+
+
+<script>
+    function eliminarJuego(id) {
+        Swal.fire({
+            "title":"Advertencia",
+            "text":"¿Estas seguro que deseas eliminar este juego?",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"NO, Cancelar",
+            "confirmButtonText":"SI",
+            "cancelButtonColor":"#343a40",
+            "confirmButtonColor":"darkred"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/eliminar_juego/"+id+"/"
+            }
+        })
+    }
+</script>
 
 
 
