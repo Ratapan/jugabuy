@@ -72,7 +72,10 @@ urlpatterns = [
     #MANTENEDOR
     path('mantenedor_de_juegos/', views.mantenedor, name="mantenedor"),
     path('agregar_juego/', views.agregarJuego, name="agregarJuego"),
+    path('listado_juego/', views.listadoJuego, name="listadoJuego"),
+    path('datos_juego/<id_>/', views.cargarDatosJuego, name="cargarDatosJuego"),
     path('modificar_juego/', views.modificarJuego, name="modificarJuego"),
+    path('eliminar_juego/<id_>/', views.eliminarJuego, name="eliminarJuego"),
     #ENDMANTENEDOR
 
 

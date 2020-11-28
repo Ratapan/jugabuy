@@ -31,6 +31,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY  = '829789295247-grp8vc42lu4nstvphplv6qdoef2iah4l.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET  = '_UHmSVpTaD1R6F-w09HVoyfp'
 # Application definition
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
 INSTALLED_APPS = [
     'admin_interface',
     #'flat_responsive', # only if django version < 2.0
