@@ -2,7 +2,10 @@ var CACHE_NAME = 'tcache'
 
 var urlsToCache = [
     '/',
-    '/modelo/templates/novedades'
+    '/static/modelo/css/style.css',
+    '/static/modelo/css/Style_juegos.css',
+
+    
 
 
 ]
