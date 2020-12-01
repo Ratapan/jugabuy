@@ -32,7 +32,7 @@ class perfil(models.Model):
     us_nom   = models.CharField(max_length=20, null=False, blank=False, verbose_name="Nombre")
     us_apes  = models.CharField(max_length=40, null=False, blank=False, verbose_name="Apellido")
     #us_contr = models.CharField(max_length=20, null=False, blank=False, verbose_name="Contraseña")
-    us_nac   = models.DateTimeField(null=False, blank=False, verbose_name="Nacimiento")
+    us_nac   = models.DateField(null=False, blank=False, verbose_name="Nacimiento")
     #us_creac = models.DateField(null=False, blank=False, verbose_name="Creacion de usuario")
     us_tel   = models.IntegerField(null=False, blank=False, verbose_name="Telefono")
     us_dir   = models.CharField(max_length= 50, null=False, blank=False, verbose_name="Direccion")
