@@ -62,19 +62,19 @@
 
         <div id="myBtnContainer " class="col-xs-12">
 
-            <button onclick="filterSelection('pc')" type="button" class="marlr  btn btn-light d-inline-flex "
+            <button onclick="filterSelection('PC')" type="button" class="marlr  btn btn-light d-inline-flex "
                 href="">PC</button>
-            <button onclick="filterSelection('sw')" type="button" class="btn btn-light d-inline-flex marlr"
+            <button onclick="filterSelection('SWITCH')" type="button" class="btn btn-light d-inline-flex marlr"
                 href="">Switch</button>
 
             <button onclick="filterSelection('all')" type="button" class="btn btn-light d-inline-flex marlr " href="#">
                 <img class="imagenm" src="{% static 'modelo/imagen/048-tower.svg' %}" width="45px" alt="">
             </button>
 
-            <button onclick="filterSelection('ps4')" type="button" class="btn btn-light d-inline-flex marlr"
+            <button onclick="filterSelection('PS4')" type="button" class="btn btn-light d-inline-flex marlr"
                 href="#">PS4</button>
 
-            <button onclick="filterSelection('xb')" type="button" class="btn btn-light d-inline-flex marlr"
+            <button onclick="filterSelection('XBOX ONE')" type="button" class="btn btn-light d-inline-flex marlr"
                 href="#">Xbox</button>
         </div>
     </nav>
@@ -99,7 +99,7 @@
                 <p class="i-id" style="display: none;">{{i.j_id}} </p>
 
                 <p class="parrafo_carta">
-                    <a onclick="vermas('mas', '{{i.j_nom}}' );" id="mas">[Ver descripcion]</a>
+                    <a onclick="vermas('mas', '{{i.j_nom}}' );" id="mas" >[Ver descripcion]</a>
                 </p>
 
                 <div>
