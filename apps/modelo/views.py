@@ -239,7 +239,7 @@ def cargarfoto(request, user):
         except:
             messages.error(request, 'Error Al actualizar las Fotos')
 
-    return redirect('cargarfoto')
+    return redirect('datospersonales')
 
 
 def actualizardatos(request):
