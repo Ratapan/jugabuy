@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 from django.http import Http404
 from django.contrib import messages
 
+
 from django.contrib import messages
 # Create your views here.
 from .forms import CreateUserForm, PerfilForm
@@ -223,8 +224,10 @@ def cargarfoto(request, user):
             fotoPerfil.objects.create(
                 nom_user=username, foto_perfil=fot_perfil, foto_banner=fot_banner)
             messages.success(request, 'Fotos Actualizadas Correctamente')
+            messages.success(request, "Fotos Actualizadas Correctamente")
         except:
             messages.error(request, 'Error Al actualizar las Fotos')
+            
 
     else:
 
@@ -236,7 +239,7 @@ def cargarfoto(request, user):
         except:
             messages.error(request, 'Error Al actualizar las Fotos')
 
-    return redirect('cargarfoto')
+    return redirect('datospersonales')
 
 
 def actualizardatos(request):
@@ -255,17 +258,23 @@ def actualizardatos(request):
             us_nom=Nom, us_apes=Apel, us_tel=Fon, us_dir=Direc)
         User.objects.filter(username=request.user.username).update(email=Emai)
 
-        messages.success(request, 'Datos Actualizados Correctamente')
+        
+        messages.success(request, "Datos Actualizados Correctamente")
 
     except:
-        messages.success(request, 'Error Al Actualizar los Datos')
+        
+        messages.success(request, "Error Al Actualizar los Datos")
 
     return redirect('datospersonales')
 # ENDPERFIL
 
 #MANTENEDOR
 def mantenedor(request):
-	return render(request, 'modelo/agregar_juegos.html')
+    return render(request, 'modelo/agregar_juegos.html')
+
+
+
+
 
 def agregarJuego(request):
 
@@ -333,7 +342,7 @@ def modificarJuego(request):
         print("======================Juego*Actualizado======================")
         messages.success(request, "Modificado Correctamente")
     except:
-        messages.success(request, "Error, El Juego no Pudo ser Modificado")
+        messages.error(request, "Error, El Juego no Pudo ser Modificado")
         print("======================Juego**NO**Actualizado======================")
     
     return redirect('listadoJuego')
@@ -345,7 +354,7 @@ def eliminarJuego(request, id_):
         juego.delete()
         messages.success(request, "Elimado Correctamente")
     except:
-        messages.success(request, "Error, El Juego no Pudo ser Eliminado")
+        messages.error(request, "Error, El Juego no Pudo ser Eliminado")
     
     return redirect('listadoJuego')
 

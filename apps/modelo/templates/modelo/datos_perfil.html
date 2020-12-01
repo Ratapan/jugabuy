@@ -35,13 +35,7 @@
 <!--Datos perso-->
 
 <div class="container">
-    {%  if messages  %}
 
-    {%  for x in messages  %}
-    <p>{{ x }}</p>
-    {%  endfor  %}
-
-    {%  endif  %}
     <form action="{%  url 'actualizardatos'  %}" method="post">
         {%  csrf_token  %}
         <div class="container-fluid d-flex ">
@@ -50,7 +44,7 @@
                     <label for="Name">Nombre </label>
                     <div class="fx">
                         <input type="input" class="form-control " name="nombre" id="Name" aria-describedby="text"
-                            value="{{ datosuser.us_nom }}" disabled>
+                            value="{{ datosuser.us_nom }}" required disabled>
                     </div>
                 </div>
 
@@ -58,7 +52,7 @@
                     <label for="Name">Apellido</label>
                     <div class="fx">
                         <input type="input" class="form-control " name="apellido" id="Lastname" aria-describedby="text"
-                            value="{{ datosuser.us_apes }}" disabled>
+                            value="{{ datosuser.us_apes }}" required disabled>
                     </div>
                 </div>
 
@@ -87,19 +81,19 @@
                 <div class="form-group">
                     <label for="Fono">Telefono</label>
                     <input type="text" class="form-control" name="fono" id="Fono" value="{{ datosuser.us_tel }}"
-                        disabled>
+                        disabled required pattern="[0-9]+">
                 </div>
 
                 <div class="form-group">
                     <label for="Phone">E-mail</label>
                     <input type="email" class="form-control" name="email" id="Phone"
-                        placeholder="Ej: Heisenberg@xxx.com" value="{{ user.email }}" disabled>
+                        placeholder="Ej: Heisenberg@xxx.com" value="{{ user.email }}" disabled required>
                 </div>
 
                 <div class="form-group">
                     <label for="Ciudad">Direccion</label>
                     <input type="text" class="form-control" name="direccion" id="Ciudad" aria-describedby="text"
-                        placeholder="Ej:Negra Arroyo 308" value="{{ datosuser.us_dir }}" disabled>
+                        placeholder="Ej:Negra Arroyo 308" value="{{ datosuser.us_dir }}" disabled required>
                 </div>
 
                 <div class="form-group">
